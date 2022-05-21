@@ -40,90 +40,64 @@ font:
   size: 9.5
    
 schemes:
-  # gruvbox: &light
-  # # Default colors
-  #   primary:
-  #     # hard contrast: background = '#f9f5d7'
-  #     background: '#fbf1c7'
-  #     # soft contrast: background = '#f2e5bc'
-  #     foreground: '#3c3836'
-
-  #   # Normal colors
-  #   normal:
-  #     black:   '#fbf1c7'
-  #     red:     '#cc241d'
-  #     green:   '#98971a'
-  #     yellow:  '#d79921'
-  #     blue:    '#458588'
-  #     magenta: '#b16286'
-  #     cyan:    '#689d6a'
-  #     white:   '#7c6f64'
-
-  #   # Bright colors
-  #   bright:
-  #     black:   '#928374'
-  #     red:     '#9d0006'
-  #     green:   '#79740e'
-  #     yellow:  '#b57614' #     blue:    '#076678'
-  #     magenta: '#8f3f71'
-  #     cyan:    '#427b58'
-  #     white:   '#3c3836' 
-
-  paper_colors: &light
+  gruvbox: &light
+  # Default colors
     primary:
-      background: "#eeeeee"
-      foreground: "#444444"
+      # hard contrast: background = '#f9f5d7'
+      background: '#fbf1c7'
+      # soft contrast: background = '#f2e5bc'
+      foreground: '#3c3836'
 
-    cursor:
-      text: "#eeeeee"
-      cursor: "#444444"
-
+    # Normal colors
     normal:
-      black: "#eeeeee"
-      red: "#af0000"
-      green: "#008700"
-      yellow: "#5f8700"
-      blue: "#0087af"
-      magenta: "#8700af"
-      cyan: "#005f87"
-      white: "#878787"
+      black:   '#fbf1c7'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#7c6f64'
 
+    # Bright colors
     bright:
-      black: "#bcbcbc"
-      red: "#af0000"
-      green: "#008700"
-      yellow: "#5f8700"
-      blue: "#0087af"
-      magenta: "#8700af"
-      cyan: "#005f87"
-      white: "#eeeeee" 
+      black:   '#928374'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614' #     blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#3c3836' 
 
-  # pencil: &light
-  # # Default Colors
+  # paper_colors: &light
   #   primary:
-  #     background: '#f1f1f1'
-  #     foreground: '#424242'
-  #   # Normal colors
+  #     background: "#eeeeee"
+  #     foreground: "#444444"
+
+  #   cursor:
+  #     text: "#eeeeee"
+  #     cursor: "#444444"
+
   #   normal:
-  #     black:   '#212121'
-  #     red:     '#c30771'
-  #     green:   '#10a778'
-  #     yellow:  '#a89c14'
-  #     blue:    '#008ec4'
-  #     magenta: '#523c79'
-  #     cyan:    '#20a5ba'
-  #     white:   '#e0e0e0'
-  #   # Bright colors
+  #     black: "#eeeeee"
+  #     red: "#af0000"
+  #     green: "#008700"
+  #     yellow: "#5f8700"
+  #     blue: "#0087af"
+  #     magenta: "#8700af"
+  #     cyan: "#005f87"
+  #     white: "#878787"
+
   #   bright:
-  #     black:   '#212121'
-  #     red:     '#fb007a'
-  #     green:   '#5fd7af'
-  #     yellow:  '#f3e430'
-  #     blue:    '#20bbfc'
-  #     magenta: '#6855de'
-  #     cyan:    '#4fb8cc'
-  #     white:   '#f1f1f1'
-  
+  #     black: "#bcbcbc"
+  #     red: "#af0000"
+  #     green: "#008700"
+  #     yellow: "#5f8700"
+  #     blue: "#0087af"
+  #     magenta: "#8700af"
+  #     cyan: "#005f87"
+  #     white: "#eeeeee" 
+
   nord: &dark
     # Default colors
     primary:
