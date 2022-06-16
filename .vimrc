@@ -52,7 +52,7 @@ set noerrorbells         " don't beep
 set nobackup
 set noswapfile 
 filetype plugin indent on
-set pastetoggle=<F2>
+set pastetoggle=<F3>
 set mouse=a
 set mousehide
 syntax on
