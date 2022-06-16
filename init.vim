@@ -13,7 +13,29 @@ set backspace=indent,eol,start
 set fileformat=unix
 set ttyfast
 set lazyredraw
+set colorcolumn=79
 filetype plugin indent on      " load filetype-specific indent files
+
+
+call plug#begin('~/.vim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jackguo380/vim-lsp-cxx-highlight'
+"debug
+Plug 'puremourning/vimspector'
+Plug 'nvie/vim-flake8'
+" Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf'
+" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
+" color schemas
+Plug 'morhetz/gruvbox'  " colorscheme gruvbox
+Plug 'arcticicestudio/nord-vim'
+Plug 'tomasiser/vim-code-dark'
+call plug#end()
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -38,7 +60,7 @@ nnoremap <C-x> :call Flake8()<CR>
 map <F2> :NERDTreeMirror<CR>
 map <F2> :NERDTreeToggle<CR>
 
-
+" debug
 " vimspector starts
 let g:python3_host_prog = '/usr/bin/python3'
 let g:vimspector_enable_mappings = 'HUMAN'
@@ -91,36 +113,13 @@ augroup END
 " endfunction
 " autocmd FileType python :call Startcoc()
 
-call plug#begin('~/.vim/plugged')
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jackguo380/vim-lsp-cxx-highlight'
-
-"debug
-Plug 'puremourning/vimspector'
-
-Plug 'nvie/vim-flake8'
-" Plug 'junegunn/fzf.vim'
-" Plug 'junegunn/fzf'
-" Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-Plug 'jiangmiao/auto-pairs'
-Plug 'preservim/nerdtree'
-
-" color schemas
-Plug 'morhetz/gruvbox'  " colorscheme gruvbox
-Plug 'arcticicestudio/nord-vim'
-Plug 'tomasiser/vim-code-dark'
-
-call plug#end()
-
 " autocmd BufWritePost *.py call Flake8()
 
 colorscheme gruvbox
 " colorscheme nord
-"
+
+
+
 " c++ syntax highlighting
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
@@ -363,7 +362,6 @@ map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
 
-set colorcolumn=79
 
 " run current script with python3 by CTRL+R in command and insert mode
 autocmd FileType python map <buffer> <C-r> :w<CR>:exec '!python3' shellescape(@%, 1)<CR>

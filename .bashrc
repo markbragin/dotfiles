@@ -128,9 +128,6 @@ if ! shopt -oq posix; then
 fi
 
 export PATH=$PATH:/home/delbik/bin
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source ~/.local/bin/virtualenvwrapper.sh
-
 ##############33
 
 # heroku autocomplete setup
