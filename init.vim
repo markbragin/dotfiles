@@ -23,7 +23,7 @@ set incsearch " show matches as you type
 set history=1000 " remember 1000 commands ans search history
 set undolevels=1000 " 1000 undos
 set title " change the terminal's title
-set lazyredraw
+set colorcolumn=79
 " set pastetoggle=<F2>
 
 filetype plugin indent on
@@ -173,8 +173,18 @@ colorscheme gruvbox
 set updatetime=300
 set shortmess+=c
 
+" Tab to move through list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -202,8 +212,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" Formatting code
+nmap <leader>f :call CocAction('format')<CR>
 
 " Symbol renaming.
 nmap <Space>rn <Plug>(coc-rename)
@@ -215,10 +228,12 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 " Mappings for CoCList
 " Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <space>a :<C-u>CocList diagnostics<cr>
 " Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <space>c :<C-u>CocList commands<cr>
 " Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <space>o :<C-u>CocList outline<cr>
 " Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <space>s :<C-u>CocList -I symbols<cr>
+" Restart
+nnoremap <silent><nowait> <space>r :CocRestart<CR>
