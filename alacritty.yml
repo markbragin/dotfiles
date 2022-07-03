@@ -128,8 +128,6 @@ schemes:
 
 colors: *dark
 
-# background_opacity: 0.85
-
 # shell:
 #     program: /bin/bash
 #     args:
