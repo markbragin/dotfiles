@@ -1,3 +1,4 @@
+" settings
 set nocompatible
 set encoding=utf-8
 " let mapleader="," " change the mapleader from \ to ,
@@ -11,7 +12,8 @@ set copyindent " copy the prev indentation on autoindenting
 set shiftwidth=4 " a number of spaces to use for autoindenting
 " set shiftround
 set number
-" set relativenumber
+set relativenumber
+set scrolloff=7
 set showmatch " set show matching parenthesis
 set ignorecase " ignore case when searching
 set smartcase " ignore case if search pattern is all lowercase
@@ -24,7 +26,14 @@ set history=1000 " remember 1000 commands ans search history
 set undolevels=1000 " 1000 undos
 set title " change the terminal's title
 set colorcolumn=79
+" finder
+" searching recursively from . directory
+set path+=**
+set wildmenu
 " set pastetoggle=<F2>
+
+" sudo with opened file
+" cmap w!! w !sudo tee % >/dev/null
 
 filetype plugin indent on
 autocmd filetype python set expandtab
@@ -33,7 +42,11 @@ autocmd filetype python set expandtab
 " set listchars=tab:··,trail:*,extends:#,nbsp:. " :h[elp] listchars
 autocmd filetype python set list
 autocmd filetype python set listchars=tab:··,lead:·,trail:*,nbsp:.
+" views
+" autocmd BufWinLeave *.* silent mkview
+" autocmd BufWinEnter *.* silent loadview
 
+" keybindings
 " Quickly edit/reload the vimrc file
 nmap <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
@@ -51,6 +64,18 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-p> <C-w>p
+
+inoremap jj <esc>
+
+" lang
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+inoremap <C-l> <C-^>
+
+" nerdtree toggle
+map <F2> :NERDTreeMirror<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " buffers
 " Delete buffer while keeping window layout (don't close buffer's windows).
@@ -130,24 +155,8 @@ nnoremap <silent> <Leader>bd :Bclose<CR>
 map gn :bn<cr>
 map gp :bp<cr>
 map gw :Bclose<cr>
-"
-inoremap jj <esc>
-nnoremap <A-j> ddp
-nnoremap <A-k> kddpk
 
-" lang
-set keymap=russian-jcukenwin
-set iminsert=0
-set imsearch=0
-inoremap <C-l> <C-^>
-
-" nerdtree toggle
-map <F2> :NERDTreeMirror<CR>
-map <F2> :NERDTreeToggle<CR>
-
-" sudo with opened file
-" cmap w!! w !sudo tee % >/dev/null
-
+" plugins
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -168,7 +177,7 @@ call plug#end()
 
 colorscheme gruvbox
 
-"
+
 " coc-settings
 set updatetime=300
 set shortmess+=c
