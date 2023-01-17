@@ -1,9 +1,12 @@
 -- vim.opt.guicursor = ""
 
+vim.opt.termguicolors = true
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- tabs & indentation
+
 vim.opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
 vim.opt.shiftwidth = 4 -- 4 spaces for indent width
 vim.opt.expandtab = true -- expand tab to spaces
@@ -36,8 +39,6 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 vim.opt.ignorecase = true
 vim.opt.hidden = true
-
-vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 7
 vim.opt.signcolumn = "yes"

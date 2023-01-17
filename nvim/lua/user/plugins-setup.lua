@@ -13,7 +13,6 @@ return require('packer').startup(function(use)
   use 'matze/vim-move'
   use 'szw/vim-maximizer'
   use 'christoomey/vim-tmux-navigator'
-
   -- tpope
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
