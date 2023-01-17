@@ -1,0 +1,137 @@
+# alacritty configuration
+#
+window:
+   # Window dimensions (changes require restart)
+  
+   # Number of lines/columns (not pixels) in the terminal. The number of columns
+   # must be at least `2`, while using a value of `0` for columns and lines will
+   # fall back to the window manager's recommended size.
+  dimensions:
+    columns: 80
+    lines: 24
+
+scrolling:
+   # Maximum number of lines in the scrollback buffer.
+   # Specifying '0' will disable scrolling.
+  history: 10000
+# B
+   # Scrolling distance multiplier.
+  multiplier: 3
+
+
+font:
+  # The normal (roman) font face to use.
+  normal:
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    style: Semibold
+
+  # The bold font face
+  bold:
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    style: Bold
+
+  # The italic font face
+  italic:
+    family: Source Code Pro
+    # Style can be specified to pick a specific face.
+    style: Italic
+  size: 10
+   
+schemes:
+  gruvbox: &light
+  # Default colors
+    primary:
+      # hard contrast: background = '#f9f5d7'
+      background: '#fbf1c7'
+      # soft contrast: background = '#f2e5bc'
+      foreground: '#3c3836'
+
+    # Normal colors
+    normal:
+      black:   '#fbf1c7'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#7c6f64'
+
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614' #     blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#3c3836' 
+
+  # paper_colors: &light
+  #   primary:
+  #     background: "#eeeeee"
+  #     foreground: "#444444"
+
+  #   cursor:
+  #     text: "#eeeeee"
+  #     cursor: "#444444"
+
+  #   normal:
+  #     black: "#eeeeee"
+  #     red: "#af0000"
+  #     green: "#008700"
+  #     yellow: "#5f8700"
+  #     blue: "#0087af"
+  #     magenta: "#8700af"
+  #     cyan: "#005f87"
+  #     white: "#878787"
+
+  #   bright:
+  #     black: "#bcbcbc"
+  #     red: "#af0000"
+  #     green: "#008700"
+  #     yellow: "#5f8700"
+  #     blue: "#0087af"
+  #     magenta: "#8700af"
+  #     cyan: "#005f87"
+  #     white: "#eeeeee" 
+
+  nord: &dark
+    # Default colors
+    primary:
+      background: '#2E3440'
+      foreground: '#D8DEE9'
+
+    # Normal colors
+    normal:
+      black:   '#3B4252'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#88C0D0'
+      white:   '#E5E9F0'
+
+    # Bright colors
+    bright:
+      black:   '#4C566A'
+      red:     '#BF616A'
+      green:   '#A3BE8C'
+      yellow:  '#EBCB8B'
+      blue:    '#81A1C1'
+      magenta: '#B48EAD'
+      cyan:    '#8FBCBB'
+      white:   '#ECEFF4'
+
+colors: *dark
+
+# shell:
+#     program: /bin/bash
+#     args:
+
+# key_bindings:
+#   - { key: V, mods: Control, action: Paste}
+#   - { key: C, mods: Control, action: Copy }
