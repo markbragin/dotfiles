@@ -4,7 +4,6 @@ vim.opt.termguicolors = true
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
 -- tabs & indentation
 
 vim.opt.tabstop = 4 -- 4 spaces for tabs (prettier default)

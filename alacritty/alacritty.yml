@@ -9,8 +9,8 @@ import:
   # - ~/.config/alacritty/monokai-pro.yml
   # - ~/.config/alacritty/monokai-charcoal.yml
   # - ~/.config/alacritty/rose-pine.yml
-  - ~/.config/alacritty/rose-pine-moon.yml
-  # - ~/.config/alacritty/nord.yml
+  # - ~/.config/alacritty/rose-pine-moon.yml
+  - ~/.config/alacritty/nord.yml
   # - ~/.config/alacritty/gruvbox.yml
 
 scrolling:
@@ -29,8 +29,8 @@ font:
     style: Italic
   size: 10
 
-# shell:
-#     program: /bin/bash
+shell:
+    program: /bin/bash
 #     args:
 
 # key_bindings:

@@ -9,7 +9,8 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
 
   -- coolshit
-  use 'jiangmiao/auto-pairs'
+  use 'windwp/nvim-autopairs'
+
   use 'matze/vim-move'
   use 'szw/vim-maximizer'
   use 'christoomey/vim-tmux-navigator'
