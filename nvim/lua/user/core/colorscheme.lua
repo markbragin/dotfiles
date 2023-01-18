@@ -8,7 +8,7 @@ require('rose-pine').setup({
 	dark_variant = 'moon',
 })
 
-local status, _ = pcall(vim.cmd, "colorscheme rose-pine")
+local status, _ = pcall(vim.cmd, "colorscheme sonokai")
 if not status then
   print("Colorscheme not found!") -- print error if colorscheme not installed
   return

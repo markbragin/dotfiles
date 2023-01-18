@@ -10,3 +10,22 @@ require('user.plugins.lualine')
 require('user.plugins.telescope')
 require('user.plugins.indent-blankline')
 require('user.plugins.nvim-autopairs')
+require('user.plugins.nvim-gomove')
+
+
+
+
+-- 1k
+-- asidjasodi
+-- aosidjsa
+-- ddja
+-- da
+-- ajasodiiaj
+-- daidaksdk
+-- dwq
+-- e0i2
+-- o23o12
+-- o23o12
+-- o23o12
+-- 0i
+-- o

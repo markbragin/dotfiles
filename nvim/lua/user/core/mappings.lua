@@ -65,10 +65,9 @@ vim.keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 vim.keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
--- vim-maximizer
-vim.keymap.set("n", "<F2>", ":MaximizerToggle<CR>") -- toggle split window maximization
-
 -- insert blanck line
 
 vim.keymap.set("n", "<space>o", "o<ESC>0d$")
 
+-- 
+vim.g.maximizer_default_mapping_key = '<F2>'

@@ -52,11 +52,17 @@ vim.opt.colorcolumn = "80"
 vim.opt.backspace = "indent,eol,start"
 
 -- comments
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cpp", "json" },
-  command = "setlocal commentstring=//%s",
-})
+vim.cmd([[
+  autocmd FileType cpp setlocal commentstring=//%s
+]])
+
+vim.cmd([[
+  autocmd FileType json setlocal commentstring=//%s
+]])
 
 vim.cmd([[
   autocmd FileType json syntax match Comment +\/\/.\+$+
 ]])
+
+-- open help with vertical split
+vim.cmd("cabbrev h vert bo h")

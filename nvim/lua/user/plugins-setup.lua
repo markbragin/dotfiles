@@ -10,10 +10,10 @@ return require('packer').startup(function(use)
 
   -- coolshit
   use 'windwp/nvim-autopairs'
-
-  use 'matze/vim-move'
+  use 'booperlv/nvim-gomove'
   use 'szw/vim-maximizer'
   use 'christoomey/vim-tmux-navigator'
+
   -- tpope
   use 'tpope/vim-surround'
   use 'tpope/vim-commentary'
