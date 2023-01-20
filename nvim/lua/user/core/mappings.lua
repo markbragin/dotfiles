@@ -39,19 +39,19 @@ vim.keymap.set("n", "<C-Down>", "<C-w>-")
 
 
 -- replace word in the whole doc
-vim.keymap.set("n", "<leader>rn",
+vim.keymap.set("n", "<space>ss",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>sx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- edit/reload config
-vim.keymap.set("n", "<leader>ev", [[:e $MYVIMRC<CR>]])
-vim.keymap.set("n", "<leader>sv", [[:so $MYVIMRC<CR>]])
+vim.keymap.set("n", "<leader>ev", "<cmd>e $MYVIMRC<CR>")
+vim.keymap.set("n", "<leader>sv", "<cmd>so $MYVIMRC<CR>")
 
 -- biffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
 vim.keymap.set("n", "gp", "<cmd>bp<CR>")
-vim.keymap.set("n", "gw", "<cmd>:Bclose<CR>")
-vim.keymap.set("n", "gW", "<cmd>:Bclose!<CR>")
+vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
+vim.keymap.set("n", "gW", "<cmd>Bclose!<CR>")
 
 -- search
 vim.keymap.set("n", "<F1>", [[:set invhlsearch<CR>]], { silent = true })
@@ -71,3 +71,13 @@ vim.keymap.set("n", "<space>o", "o<ESC>0d$")
 
 -- 
 vim.g.maximizer_default_mapping_key = '<F2>'
+
+--
+-- exit terminal mode
+vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
+
+-- compile debug and release version of cpp project
+vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
+vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug; /usr/bin/alacritty --hold -e bin/debug/*<CR>")
+vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
+vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release; /usr/bin/alacritty --hold -e bin/release/*<CR>")

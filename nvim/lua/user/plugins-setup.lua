@@ -24,6 +24,8 @@ return require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use 'rose-pine/neovim'
   use 'sainnhe/sonokai'
+  -- icons
+  -- use 'ryanoasis/vim-devicons'
 
   -- lsp
   use {
@@ -44,9 +46,13 @@ return require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip' -- for autocompletion
   use 'rafamadriz/friendly-snippets' -- useful snippets
 
+  -- debugger
+  use 'mfussenegger/nvim-dap'
+  use 'rcarriga/nvim-dap-ui'
+
   -- treesitter
   use 'nvim-treesitter/nvim-treesitter'
-
+ 
   -- telescope
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.0',

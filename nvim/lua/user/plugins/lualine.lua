@@ -7,7 +7,7 @@ custom_gruvbox.visual.c = custom_gruvbox.insert.c
 
 require('lualine').setup {
   options = {
-    icons_enabled = false,
+    icons_enabled = true,
     theme = 'auto',
     component_separators = { left = '', right = ''},
     section_separators = { left = '', right = ''},
@@ -15,13 +15,20 @@ require('lualine').setup {
       statusline = {},
       winbar = {},
     },
-    ignore_focus = {},
+    ignore_focus = {
+      'dapui_watches',
+      'dapui_breakpoints',
+      'dapui_scopes',
+      'dapui_stacks',
+      'dapui_console',
+      'dap-repl',
+    },
     always_divide_middle = true,
     globalstatus = false,
     refresh = {
-      statusline = 10,
-      tabline = 10,
-      winbar = 10,
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
     }
   },
   sections = {

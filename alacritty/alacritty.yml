@@ -20,19 +20,18 @@ scrolling:
 font:
   normal:
     family: Source Code Pro
-    style: Semibold
+    style: Medium
   bold:
     family: Source Code Pro
     style: Bold
   italic:
     family: Source Code Pro
     style: Italic
-  size: 10
+  size: 10.5
 
 shell:
     program: /bin/bash
 #     args:
 
-# key_bindings:
-#   - { key: V, mods: Control, action: Paste}
-#   - { key: C, mods: Control, action: Copy }
+key_bindings:
+- { key: Backslash, mods: Command, action: Quit }
