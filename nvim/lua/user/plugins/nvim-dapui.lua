@@ -5,7 +5,7 @@ if not dapui_status then
 end
 
 -- mappings
--- vim.keymap.set("n", "<F3>", "<cmd>lua require('dapui').toggle()<CR>")
+vim.keymap.set("n", "<leader><F2>", "<cmd>lua require('dapui').toggle()<CR>")
 vim.keymap.set("n", "E", "<cmd>lua require('dapui').eval()<CR>")
 vim.keymap.set("n", "<leader>r", "<cmd>lua require('dapui').float_element('repl')<CR>")
 

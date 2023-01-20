@@ -5,14 +5,13 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- greatest remap ever
-vim.keymap.set("x", "<space>p", [["_dP]])
-
 -- clipboard
 vim.keymap.set({ "n", "v" }, "<C-y>", [["+y]])
 vim.keymap.set({ "n", "v" }, "<C-p>", [["+p]])
 vim.keymap.set({ "n", "v" }, "<space>d", [["_d]])
-vim.keymap.set("i", "<C-p>", [[<ESC>"+p]])
+
+-- greatest remap ever
+vim.keymap.set("x", "<space>p", [["_dP]])
 
 -- This is going to get me cancelled
 vim.keymap.set("i", "jj", "<Esc>")
@@ -51,7 +50,7 @@ vim.keymap.set("n", "<leader>sv", "<cmd>so $MYVIMRC<CR>")
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
 vim.keymap.set("n", "gp", "<cmd>bp<CR>")
 vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
-vim.keymap.set("n", "gW", "<cmd>Bclose!<CR>")
+vim.keymap.set("n", "<leader>gw", "<cmd>Bclose!<CR>")
 
 -- search
 vim.keymap.set("n", "<F1>", [[:set invhlsearch<CR>]], { silent = true })
@@ -78,6 +77,6 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- compile debug and release version of cpp project
 vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
-vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug; /usr/bin/alacritty --hold -e bin/debug/*<CR>")
+vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/bin/alacritty --hold -e bin/debug/*<CR>")
 vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
-vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release; /usr/bin/alacritty --hold -e bin/release/*<CR>")
+vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/bin/alacritty --hold -e bin/release/*<CR>")
