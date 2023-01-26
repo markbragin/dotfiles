@@ -27,7 +27,7 @@ font:
   italic:
     family: Source Code Pro
     style: Italic
-  size: 10.5
+  size: 9.5
 
 shell:
     program: /bin/bash

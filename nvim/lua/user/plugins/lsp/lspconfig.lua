@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>', vim.lsp.buf.signature_help, bufopts)
   -- vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   -- vim.keymap.set('n', '<space>wl', function()
@@ -114,20 +114,20 @@ lspconfig['cmake'].setup {
   }
 }
 
-lspconfig['marksman'].setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  settings = {
-    cmd = {
-      "marksman",
-      "server",
-    },
-    filetypes = {
-      "markdown",
-    },
-    single_file_support = true,
-  }
-}
+-- lspconfig['marksman'].setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   settings = {
+--     cmd = {
+--       "marksman",
+--       "server",
+--     },
+--     filetypes = {
+--       "markdown",
+--     },
+--     single_file_support = true,
+--   }
+-- }
 
 -- some settings
 vim.diagnostic.config({ virtual_text = false })

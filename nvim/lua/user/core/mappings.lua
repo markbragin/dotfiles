@@ -67,6 +67,7 @@ vim.keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 -- insert blanck line
 
 vim.keymap.set("n", "<space>o", "o<ESC>0d$")
+vim.keymap.set("n", "<space>O", "O<ESC>0d$")
 
 -- 
 vim.g.maximizer_default_mapping_key = '<F2>'
@@ -76,7 +77,14 @@ vim.g.maximizer_default_mapping_key = '<F2>'
 vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- compile debug and release version of cpp project
+-- vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
+-- vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/bin/alacritty --hold -e bin/debug/*<CR>")
+-- vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
+-- vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/bin/alacritty --hold -e bin/release/*<CR>")
 vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
-vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/bin/alacritty --hold -e bin/debug/*<CR>")
+vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/local/bin/st -e bash -c 'bin/debug/*;read'<CR>")
 vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
-vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/bin/alacritty --hold -e bin/release/*<CR>")
+vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bin/st -e bash -c 'bin/release/*;read'<CR>")
+
+-- increment/decrement
+vim.keymap.set({ "n", "v" }, "<C-s>", "<C-a>")
