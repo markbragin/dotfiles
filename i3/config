@@ -1,0 +1,285 @@
+# win for special key
+set $mod Mod4
+
+font pango:Ubuntu Bold 10
+
+# MOVES ########################################################################
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Define names for default workspaces for which we configure key bindings later on.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+################################################################################
+
+
+
+# RESIZE #######################################################################
+
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+    bindsym h resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym j resize shrink height 5 px or 5 ppt
+    bindsym l resize grow width 5 px or 5 ppt
+
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+################################################################################
+
+
+
+# GAPS #########################################################################
+
+# get rid of borders and titlebar
+for_window [class="^.*"] border pixel 2
+default_border none
+default_floating_border none
+gaps inner 4
+gaps outer 0
+smart_gaps on
+smart_borders no_gaps
+hide_edge_borders smart_no_gaps
+for_window [floating] border pixel 0
+################################################################################
+
+
+
+# AUTOSTART ####################################################################
+
+exec --no-startup-id xrandr --output VGA-0 --off
+exec --no-startup-id redshift
+
+################################################################################
+
+
+
+# LAYOUT #######################################################################
+
+exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:alt_shift_toggle -option compose:ralt"
+exec_always --no-startup-id "xset r rate 300 30"
+exec_always --no-startup-id "xinput | rg -i 'touchpad.*id=(\d+)' -or '$1' | xargs -I '{}' xinput --disable '{}'"
+
+################################################################################
+
+# CONTROLS #################################################################
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+2 i3blocks
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20 # decrease screen brightness
+
+# Media player controls
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+################################################################################
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# mouse
+focus_follows_mouse no
+
+# bindsym $mod+Return exec --no-startup-id alacritty
+bindsym $mod+Return exec --no-startup-id st
+bindsym $mod+Shift+Return exec --no-startup-id alacritty
+bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'Iosevka:Regular:pixelsize=17'
+bindsym Print exec --no-startup-id flameshot gui
+bindsym Control+Mod1+l exec --no-startup-id "i3lock -c 000000"
+# exec "xautolock -detectsleep -time 3 -locker \"i3lock -f -c 000000\""
+bindsym $mod+F12 exec --no-startup-id togglemouse
+bindsym $mod+F11 exec --no-startup-id toggletouchpad
+
+bindsym $mod+Shift+q kill
+bindsym $mod+g split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+d focus child
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+Shift+g move absolute position center
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e --no-startup-id exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+p [class="st"] scratchpad show; move position center
+
+
+# Exit mode
+mode "exit: [l]ogout, [r]eboot, [s]hutdown" {
+  bindsym l exec i3-msg exit
+  bindsym r exec systemctl reboot
+  bindsym s exec systemctl shutdown
+  bindsym Escape mode "default"
+  bindsym Return mode "default"
+}
+bindsym $mod+Shift+x mode "exit: [l]ogout, [r]eboot, [s]hutdown"
+
+##START THEMING WM
+
+# NORD
+
+# darker
+set $polar1 "#2e3440"
+set $polar2 "#3b4252"
+set $polar3 "#434c5e"
+set $polar4 "#4c566a"
+# lighter
+
+# more grey
+set $snow1 "#d8dee9"
+set $snow2 "#e5e9f0"
+set $snow3 "#eceff4"
+# more white
+
+# green
+set $frost1 "#8fbcbb"
+set $frost2 "#88c0d0"
+set $frost3 "#81a1c1"
+set $frost4 "#5e81ac"
+# blue
+
+# red
+set $aurora1 "#bf616a"
+# orange
+set $aurora2 "#d08770"
+# yellow
+set $aurora3 "#ebcb8b"
+# green
+set $aurora4 "#a3be8c"
+# purple?
+set $aurora5 "#b48ead"
+
+# back
+set $back "#1f222d"
+
+# Window color settings
+# class                 border  backgr. text    indicator
+client.focused          $aurora3 $aurora3  $aurora3 $aurora3 
+client.unfocused        $polar1  $polar1  $polar1  $polar1
+client.focused_inactive $frost1  $frost1  $frost1  $frost1
+client.placeholder      $aurora3 $aurora3 $aurora3 $aurora3
+client.urgent           $aurora1 $aurora1 $aurora3 $aurora1
+
+client.background       $frost1
+
+##STOP THEMING WM
+
+# i3blocks
+bar {
+    height 25
+	position top
+    font pango: Iosevka Bold 12
+	status_command i3blocks
+    tray_padding 1
+    strip_workspace_numbers yes
+    separator_symbol "  "
+
+    colors {
+        separator  $frost2
+        background $back
+        statusline $snow3
+
+        #                   border  background text
+        focused_workspace  $frost3  $frost3  $back
+        active_workspace   $frost3  $frost3  $back
+        inactive_workspace $back    $back    $frost3
+        urgent_workspace   $aurora1 $aurora1 $back
+        binding_mode       $aurora3 $aurora3 $back
+    }
+}
+
+for_window [class="Yad"] floating enable
+for_window [class="Anki"] floating enable
+for_window [class="Timer"] floating enable
+for_window [class="st"] floating enable
+
+assign [class="firefox"] 1
+assign [class="Telegram"] 3
+
+
+# default i3status
+# bar {
+#     # height 30
+# 	position top
+#     font pango: Iosevka Bold 11.5
+# 	status_command i3status
+#     tray_padding 1
+#     strip_workspace_numbers yes
+#     separator_symbol " "
+
+#     colors {
+#         separator  $frost2
+#         background $back
+#         statusline $frost3
+
+#         #                   border  background text
+#         focused_workspace  $frost3  $frost3  $back
+#         active_workspace   $frost3  $frost3  $back
+#         inactive_workspace $back    $back    $frost3
+#         urgent_workspace   $aurora1 $aurora1 $back
+#         binding_mode       $aurora3 $aurora3 $back
+#     }
+# }

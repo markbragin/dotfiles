@@ -1,0 +1,76 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+
+general {
+    output_format = "i3bar"
+    colors = true
+    interval = 5
+    color_good = "#a3be8c" # Light green
+    color_degraded = "#ebcb8b" # Light yellow
+    color_bad = "#bf617a" # Light red
+}
+
+order += "tztime local"
+order += "cpu_temperature 1"
+order += "load"
+order += "memory"
+order += "volume master"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery 0"
+
+
+tztime local {
+    format = " %a %d-%m-%Y %H:%M  "
+    min_width = 370
+}
+
+cpu_temperature 1 {
+    format = "%degrees°C"
+    max_threshold = 70
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+}
+
+load {
+    format = "CPU: %1min"
+    max_threshold = 80
+}
+
+memory {
+    format = "Used: %used"
+    threshold_degraded = "1G"
+    format_degraded = "Avail: %available"
+}
+
+volume master {
+    format = "♪ %volume"
+    format_muted = "🔇 muted"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+wireless _first_ {
+    format_up = " %essid"
+    format_down = ""
+
+}
+
+ethernet _first_ {
+    format_up = "Eth: %speed"
+    format_down = "Eth"
+}
+
+battery 0 {
+    format = " %percentage⠀"
+    format_down = ""
+    hide_seconds = true
+    integer_battery_capacity = true
+    last_full_capacity = true
+}
