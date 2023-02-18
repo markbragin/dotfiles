@@ -81,15 +81,15 @@ bindsym $mod+r mode "resize"
 # GAPS #########################################################################
 
 # get rid of borders and titlebar
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 default_border none
 default_floating_border none
 gaps inner 4
-gaps outer 0
+gaps outer 2
 smart_gaps on
 smart_borders no_gaps
 hide_edge_borders smart_no_gaps
-for_window [floating] border pixel 0
+for_window [floating] border pixel 1
 ################################################################################
 
 
@@ -109,6 +109,7 @@ exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ru -variant ,, -o
 exec_always --no-startup-id "xset r rate 300 30"
 exec_always --no-startup-id "xinput | rg -i 'touchpad.*id=(\d+)' -or '$1' | xargs -I '{}' xinput --disable '{}'"
 
+# bindsym Mod1+e exec --no-startup-id pkill -RTMIN+2 i3blocks
 ################################################################################
 
 # CONTROLS #################################################################
@@ -163,7 +164,7 @@ bindsym $mod+Shift+g move absolute position center
 bindsym $mod+Shift+s sticky toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e --no-startup-id exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e --no-startup-id exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+p [class="st"] scratchpad show; move position center
 
 
@@ -231,7 +232,7 @@ client.background       $frost1
 bar {
     height 25
 	position top
-    font pango: Iosevka Bold 12
+    font pango: Iosevka Bold 10
 	status_command i3blocks
     tray_padding 1
     strip_workspace_numbers yes
@@ -258,6 +259,8 @@ for_window [class="st"] floating enable
 
 assign [class="firefox"] 1
 assign [class="Telegram"] 3
+assign [title="Atril Document Viewer"] 4
+# assign [class="Evince"] 4
 
 
 # default i3status

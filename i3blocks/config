@@ -21,58 +21,15 @@
 # signal
 # urgent
 
-
-# COLORS
-# darker
-# polar1="#2e3440"
-# polar2="#3b4252"
-# polar3="#434c5e"
-# polar4="#4c566a"
-# lighter
-
-# more grey
-# snow1="#d8dee9"
-# snow2="#e5e9f0"
-# snow3="#eceff4"
-# more white
-
-# green
-# frost1="#8fbcbb"
-# frost2="#88c0d0"
-# frost3="#81a1c1"
-# frost4="#5e81ac"
-# blue
-
-# red
-# aurora1="#bf616a"
-# orange
-# aurora2="#d08770"
-# yellow
-# aurora3="#ebcb8b"
-# green
-# $aurora4="#a3be8c"
-# purple?
-# $aurora5="#b48ead"
-
-# back
-# back="#1f222d"
-
 # background=#1f222d
 color=#88c0d0
 border=#88c0d0
 # markup=none
 
-# [speedtest]
-# command=~/.local/share/i3blocks-contrib/speedtest/speedtest
-# interval=3600
-# color=#5e81ac
-
 [temperature1]
-command=format-temp1
+command=~/code/i3block-scripts/format-temp1
 interval=5
 markup=pango
-# color=#ff5555
-# border=#ff5555
 border_top=1
 border_right=0
 border_bottom=0
@@ -82,52 +39,14 @@ border_left=0
 command=~/.local/share/i3blocks-contrib/cpu_usage2/cpu_usage2
 markup=pango
 interval=persist
-# color=#ffb86c
-# border=#ffb86c
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
-# color=#a3be8c
-#min_width=CPU 100.00%
-#REFRESH_TIME=1
-#LABEL=CPU 
-#WARN_PERCENT=50
-#CRIT_PERCENT=80
-#DECIMALS=2
-# COLOR_NORMAL=#a3be8c
-# COLOR_WARN=#ebcb8b
-# COLOR_CRIT=#bf616
-
-
-#[cpu_util_detailed]
-#command=~/.local/share/i3blocks-contrib/cpu_util_detailed/cpu_util_detailed
-#label=CPU
-#markup=pango
-#interval=-2
-#report_time=5
-## stats=usr nice sys iowait
-##format=%6.2f
-##warn=80
-#usr_color=#a3be8c
-#nice_color=#ebcb8b
-#sys_color=#bf616a
-#iowait_color=#d8dee9
-## irq_color=purple
-##soft_color=violet
-##steal_color=orange
-##guest_color=cyan
-##gnice_color=blue
-##idle_color=white
-##total_color=white
-#color=#88c0d0
 
 [ram]
-# command=echo -n ' '; ~/.local/share/i3blocks-contrib/memory/memory | cat
 command=~/.local/share/i3blocks-contrib/memory/memory
-interval=10
-# color=#f1fa8c
-# border=#f1fa8c
+interval=5
 border_top=1
 border_right=0
 border_bottom=0
@@ -135,50 +54,26 @@ border_left=0
 
 [volume-pulseaudio]
 command=~/.local/share/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
-interval=once
-signal=1
-# LONG_FORMAT="${SYMB}${VOL}% [${INDEX}:${NAME}]"
+interval=1
 LONG_FORMAT="${SYMB}${VOL}%"
 SHORT_FORMAT="${SYMB}${VOL}%"
 DEFAULT_COLOR="#88c0d0"
 MUTED_COLOR="#bf616a"
-# USE_ALSA_NAME=1
-# MIXER=[determined automatically]
-# SCONTROL=[determined automatically]
-#exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
-AUDIO_HIGH_SYMBOL= 
-AUDIO_MED_THRESH=50
-AUDIO_MED_SYMBOL= 
-AUDIO_LOW_THRESH=0
-AUDIO_LOW_SYMBOL= 
-AUDIO_DELTA=5
-# USE_ALSA_NAME=0
-# USE_DESCRIPTION=0
-# SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
-# SUBSCRIBE=0
-# color=#bd93f9
-# border=#bd93f9
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [battery]
-command=~/.local/share/i3blocks-contrib/battery/battery
-interval=60
+# command=~/.local/share/i3blocks-contrib/battery/battery
+command=~/code/i3block-scripts/battery
+interval=persist
 LABEL= 
-# color=#8be9fd
-# border=#8be9fd
+markup=pango
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
-# color=#ebcb8b
-
-# [battery2]
-# command=~/.local/share/i3blocks-contrib/battery2/battery2
-# markup=pango
-# interval=30
 
 [calendar]
 command=~/.local/share/i3blocks-contrib/calendar/calendar
@@ -186,8 +81,6 @@ interval=1
 LABEL= 
 min_width=11
 align=center
-# color=#50fa7b
-# border=#50fa7b
 border_top=1
 border_right=0
 border_bottom=0

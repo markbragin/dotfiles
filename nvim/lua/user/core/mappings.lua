@@ -88,3 +88,6 @@ vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bi
 
 -- increment/decrement
 vim.keymap.set({ "n", "v" }, "<C-s>", "<C-a>")
+
+-- markdown-preview
+-- vim.keymap.set("n", "<leader>md")

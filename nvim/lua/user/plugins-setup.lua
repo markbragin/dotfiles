@@ -66,4 +66,11 @@ return require('packer').startup(function(use)
   -- indentation
   use 'lukas-reineke/indent-blankline.nvim'
 
+  -- markdown previewer
+  -- install without yarn or npm
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
 end)

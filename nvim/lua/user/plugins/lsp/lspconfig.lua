@@ -72,7 +72,7 @@ lspconfig['clangd'].setup {
 }
 
 
-lspconfig['sumneko_lua'].setup({
+lspconfig['lua_ls'].setup({
   capabilities = capabilities,
   on_attach = on_attach,
   settings = { -- custom settings for lua
@@ -106,6 +106,39 @@ lspconfig['cmake'].setup {
     },
     filetypes = {
       "cmake",
+    },
+    init_options = {
+      buildDirectory = "build",
+    },
+    single_file_support = true,
+  }
+}
+
+
+lspconfig['texlab'].setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  settings = {
+    cmd = {
+      "texlab",
+    },
+    filetypes = {
+      "tex",
+      "plaintex",
+      "bib",
+    },
+    texlab = {
+      build = {
+        args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+        executable = "latexmk",
+        forwardSearchAfter = false,
+        onSave = true,
+      },
+      latexFormatter = "latexindent",
+      latexindent = {
+        modifyLineBreaks = false
+      },
+      rootDirectory = ".",
     },
     init_options = {
       buildDirectory = "build",
