@@ -98,6 +98,7 @@ for_window [floating] border pixel 1
 
 exec --no-startup-id xrandr --output VGA-0 --off
 exec --no-startup-id redshift
+exec --no-startup-id xss-lock -- i3lock -c 000000
 
 ################################################################################
 
