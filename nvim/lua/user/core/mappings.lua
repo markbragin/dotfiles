@@ -86,8 +86,11 @@ vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/local/bin/
 vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
 vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bin/st -e bash -c 'bin/release/*;read'<CR>")
 
--- increment/decrement
-vim.keymap.set({ "n", "v" }, "<C-s>", "<C-a>")
-
 -- markdown-preview
 -- vim.keymap.set("n", "<leader>md")
+
+-- run python script
+vim.keymap.set("n", "<leader>pr", "<cmd>w | !python3 %<CR>")
+
+-- build latex doc
+vim.keymap.set("n", "<leader>tb", "<cmd>TexlabBuild<CR>")

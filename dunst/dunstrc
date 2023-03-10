@@ -20,7 +20,7 @@
     follow = true
 
     ### Geometry ###
-    geometry = "300x5-10+30"
+    # geometry = "300x5-0+0"
 
     # dynamic width from 0 to 300
     # width = (0, 300)
@@ -34,7 +34,7 @@
     origin = top-right
 
     # Offset from the origin
-    offset = 10x50
+    # offset = 10x50
 
     # Scale factor. It is auto-detected if value is 0.
     scale = 1
@@ -124,7 +124,7 @@
 
     ### Text ###
 
-    font = Iosevka Bold 12
+    font = Iosevka Bold 10
     # font = SourceCodePro 12
 
     # The spacing between lines.  If the height is smaller than the
