@@ -81,7 +81,7 @@ bindsym $mod+r mode "resize"
 # GAPS #########################################################################
 
 # get rid of borders and titlebar
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 2
 default_border none
 default_floating_border none
 gaps inner 4
@@ -89,7 +89,7 @@ gaps outer 2
 smart_gaps on
 smart_borders no_gaps
 hide_edge_borders smart_no_gaps
-for_window [floating] border pixel 1
+for_window [floating] border pixel 2
 ################################################################################
 
 
