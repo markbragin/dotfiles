@@ -259,7 +259,7 @@ for_window [class="st"] floating enable
 
 assign [class="firefox"] 1
 assign [class="Telegram"] 3
-assign [title="Atril Document Viewer"] 4
+# assign [title="Atril Document Viewer"] 4
 # assign [class="Evince"] 4
 
 
