@@ -98,7 +98,7 @@ for_window [floating] border pixel 2
 
 exec --no-startup-id xrandr --output VGA-0 --off
 exec --no-startup-id redshift
-exec --no-startup-id xss-lock -- i3lock -c 000000
+exec --no-startup-id xss-lock -- i3lock -c 000000 -i ~/Pictures/wallpaper1366.png
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
 ################################################################################
@@ -144,7 +144,7 @@ bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'Iosevka:Regular:pixelsize=17'
 bindsym Print exec --no-startup-id flameshot gui
-bindsym Control+Mod1+l exec --no-startup-id "i3lock -c 000000"
+bindsym Control+Mod1+l exec --no-startup-id "i3lock -i ~/Pictures/wallpaper1366.png"
 bindsym $mod+F12 exec --no-startup-id ~/code/i3block-scripts/togglemouse
 bindsym $mod+F11 exec --no-startup-id ~/code/i3block-scripts/toggletouchpad
 
