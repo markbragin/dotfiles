@@ -239,6 +239,11 @@ _G.packer_plugins = {
     path = "/home/delbik/.local/share/nvim/site/pack/packer/start/vim-maximizer",
     url = "https://github.com/szw/vim-maximizer"
   },
+  ["vim-python-pep8-indent"] = {
+    loaded = true,
+    path = "/home/delbik/.local/share/nvim/site/pack/packer/start/vim-python-pep8-indent",
+    url = "https://github.com/Vimjas/vim-python-pep8-indent"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/delbik/.local/share/nvim/site/pack/packer/start/vim-surround",

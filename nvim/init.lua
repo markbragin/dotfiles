@@ -16,3 +16,5 @@ require('user.plugins.telescope')
 require('user.plugins.indent-blankline')
 require('user.plugins.nvim-autopairs')
 require('user.plugins.nvim-gomove')
+
+-- require('user.plugins.lsp_signature')

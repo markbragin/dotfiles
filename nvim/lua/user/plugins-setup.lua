@@ -41,6 +41,7 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
+  -- use 'ray-x/lsp_signature.nvim'
 
   -- snippets
   use 'L3MON4D3/LuaSnip'
@@ -52,7 +53,10 @@ return require('packer').startup(function(use)
   use 'rcarriga/nvim-dap-ui'
 
   -- treesitter
-  use 'nvim-treesitter/nvim-treesitter'
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  }
 
   -- telescope
   use {
@@ -65,6 +69,8 @@ return require('packer').startup(function(use)
 
   -- indentation
   use 'lukas-reineke/indent-blankline.nvim'
+  -- right indentation for python
+  use 'Vimjas/vim-python-pep8-indent'
 
   -- markdown previewer
   -- install without yarn or npm

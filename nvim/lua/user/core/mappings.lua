@@ -46,7 +46,7 @@ vim.keymap.set("n", "<leader>sx", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ev", "<cmd>e $MYVIMRC<CR>")
 vim.keymap.set("n", "<leader>sv", "<cmd>so $MYVIMRC<CR>")
 
--- biffers
+-- buffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
 vim.keymap.set("n", "gp", "<cmd>bp<CR>")
 vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
@@ -91,6 +91,8 @@ vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bi
 
 -- run python script
 vim.keymap.set("n", "<leader>pr", "<cmd>w | !python3 %<CR>")
+-- run black
+vim.keymap.set("n", "<leader>pb", "<cmd>w | !black -l 79 %<CR> <cmd>e<CR>")
 
 -- build latex doc
 vim.keymap.set("n", "<leader>tb", "<cmd>TexlabBuild<CR>")
