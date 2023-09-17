@@ -128,7 +128,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$PATH:/home/delbik/bin
-export PATH=$PATH:/home/delbik/.local/bin
-export PATH=$PATH:/home/delbik/.python3.10/bin
-# export PATH=$PATH:/home/delbik/.pypy3.9/bin
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.python3.10/bin
+# export PATH=$PATH:~/.pypy3.9/bin
