@@ -1,3 +1,6 @@
-require("nvim-autopairs").setup {
-  fast_wrap = {}
+return {
+  'windwp/nvim-autopairs',
+  config = {
+    fast_wrap = {}
+  }
 }
