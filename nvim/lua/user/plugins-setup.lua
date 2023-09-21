@@ -24,8 +24,6 @@ return require('packer').startup(function(use)
   use 'navarasu/onedark.nvim'
   use 'rose-pine/neovim'
   use 'sainnhe/sonokai'
-  -- icons
-  -- use 'ryanoasis/vim-devicons'
 
   -- lsp
   use {
@@ -41,7 +39,6 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  -- use 'ray-x/lsp_signature.nvim'
 
   -- snippets
   use 'L3MON4D3/LuaSnip'
@@ -71,12 +68,4 @@ return require('packer').startup(function(use)
   use 'lukas-reineke/indent-blankline.nvim'
   -- right indentation for python
   use 'Vimjas/vim-python-pep8-indent'
-
-  -- markdown previewer
-  -- install without yarn or npm
-  use({
-      "iamcco/markdown-preview.nvim",
-      run = function() vim.fn["mkdp#util#install"]() end,
-  })
-
 end)

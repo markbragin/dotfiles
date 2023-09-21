@@ -132,3 +132,5 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.python3.10/bin
 # export PATH=$PATH:~/.pypy3.9/bin
+
+alias nvimchad="NVIM_APPNAME=NvChad nvim"
