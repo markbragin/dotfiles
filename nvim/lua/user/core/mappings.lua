@@ -49,8 +49,8 @@ vim.keymap.set("n", "<leader>sv", "<cmd>so $MYVIMRC<CR>")
 -- buffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
 vim.keymap.set("n", "gp", "<cmd>bp<CR>")
-vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
-vim.keymap.set("n", "<leader>gw", "<cmd>Bclose!<CR>")
+-- vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
+-- vim.keymap.set("n", "<leader>gw", "<cmd>Bclose!<CR>")
 
 -- search
 vim.keymap.set("n", "<F1>", [[:set invhlsearch<CR>]], { silent = true })
