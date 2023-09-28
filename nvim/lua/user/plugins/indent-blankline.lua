@@ -1,5 +1,6 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
+  main = "ibl",
   config = {
     show_current_context = true,
     -- char_highlight_list = {
