@@ -24,6 +24,11 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "set tabstop=4 | set shiftwidth=4",
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  command = "setlocal spelllang=en,ru | setlocal spell",
+})
+
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
