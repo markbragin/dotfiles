@@ -5,7 +5,6 @@ return {
   'christoomey/vim-tmux-navigator',
 
   -- tpope
-  'tpope/vim-surround',
   'tpope/vim-commentary',
 
   -- colorschemes
@@ -27,10 +26,8 @@ return {
     lazy = false,
     priority = 1000,
     config = function ()
-      vim.cmd([[
-        let g:sonokai_style = 'andromeda'
-        let g:sonokai_better_performance = 1
-      ]])
+      vim.g.sonokai_style = 'andromeda'
+      vim.g.sonokai_better_performance = 1
       vim.cmd([[colorscheme sonokai]])
     end
   },

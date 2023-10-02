@@ -17,6 +17,7 @@ return {
     vim.keymap.set("n", "<F10>", "<cmd>lua require('dap').step_over()<CR>")
     vim.keymap.set("n", "<F11>", "<cmd>lua require('dap').step_into()<CR>")
     vim.keymap.set("n", "<F12>", "<cmd>lua require('dap').step_out()<CR>")
+    vim.keymap.set("n", "<F6>", "<cmd>lua require('dap').restart()<CR>")
     -- vim.keymap.set("n", "<leader><F3>", "<cmd>lua require('dap.ext.vscode').load_launchjs(vim.fn.getcwd() .. '/.launch.json', { cppdbg = {'cpp'} })<CR>")
 
     -- autoload .launch.json config
@@ -30,17 +31,17 @@ return {
     -- }
 
     -- default configurations
-    -- dap.configurations.cpp = {
-    --   {
-    --     type = "cppdbg",
-    --     name = "Launch",
-    --     request = "launch",
-    --     cwd = "${workspaceFolder}",
-    --     program = "${workspaceFolder}/${fileBasenameNoExtension}",
-    --     MIMode = "gdb",
-    --     miDebuggerPath = "/usr/bin/gdb",
-    --   },
-    -- }
+    dap.configurations.cpp = {
+      {
+        type = "cppdbg",
+        name = "Launch",
+        request = "launch",
+        cwd = "${workspaceFolder}",
+        program = "${workspaceFolder}/bin/debug/${fileBasenameNoExtension}",
+        MIMode = "gdb",
+        miDebuggerPath = "/usr/bin/gdb",
+      },
+    }
   end
 }
 
