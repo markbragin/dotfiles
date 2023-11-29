@@ -34,10 +34,19 @@ return {
     dap.configurations.cpp = {
       {
         type = "cppdbg",
-        name = "Launch",
+        name = "cmake",
         request = "launch",
         cwd = "${workspaceFolder}",
         program = "${workspaceFolder}/bin/debug/${fileBasenameNoExtension}",
+        MIMode = "gdb",
+        miDebuggerPath = "/usr/bin/gdb",
+      },
+      {
+        type = "cppdbg",
+        name = "raw",
+        request = "launch",
+        cwd = "${workspaceFolder}",
+        program = "${fileBasenameNoExtension}",
         MIMode = "gdb",
         miDebuggerPath = "/usr/bin/gdb",
       },

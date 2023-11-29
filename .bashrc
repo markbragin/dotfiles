@@ -134,3 +134,7 @@ export PATH=$PATH:~/.python3.10/bin
 # export PATH=$PATH:~/.pypy3.9/bin
 
 bind 'set completion-ignore-case on'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history"
