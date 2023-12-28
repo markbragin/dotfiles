@@ -165,6 +165,7 @@ bindsym $mod+Shift+g move absolute position center
 bindsym $mod+Shift+s sticky toggle
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
+bindsym $mod+minus exec --no-startup-id "dunstctl close all"
 # bindsym $mod+Shift+e --no-startup-id exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 bindsym $mod+p [class="st"] scratchpad show; move position center
 
