@@ -117,9 +117,10 @@ exec_always --no-startup-id "xinput | rg -i 'touchpad.*id=(\d+)' -or '$1' | xarg
 # CONTROLS #################################################################
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle && pkill -RTMIN+2 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym $mod+F1 exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
