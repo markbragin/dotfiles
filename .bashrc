@@ -131,6 +131,7 @@ fi
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.python3.10/bin
+export PATH=$PATH:~/.cargo/bin
 # export PATH=$PATH:~/.pypy3.9/bin
 
 bind 'set completion-ignore-case on'
