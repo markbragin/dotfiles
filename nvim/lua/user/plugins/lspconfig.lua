@@ -56,6 +56,20 @@ return {
       },
     }
 
+    lspconfig['csharp_ls'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        filetypes = { "c#" },
+        inlineHints = {
+          enable = false,
+        },
+        giagnostics = {
+          enable = false
+        }
+      },
+    }
+
     lspconfig['lua_ls'].setup({
       capabilities = capabilities,
       on_attach = on_attach,

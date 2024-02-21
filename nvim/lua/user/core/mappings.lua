@@ -81,13 +81,15 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 -- vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/bin/alacritty --hold -e bin/debug/*<CR>")
 -- vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
 -- vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/bin/alacritty --hold -e bin/release/*<CR>")
-vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
-vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/local/bin/st -e bash -c 'bin/debug/*;read'<CR>")
-vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
-vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bin/st -e bash -c 'bin/release/*;read'<CR>")
+
+-- vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
+-- vim.keymap.set("n", "<leader><F3>", "<cmd>make -C build/debug && /usr/local/bin/st -e bash -c 'bin/debug/*;read'<CR>")
+-- vim.keymap.set("n", "<F4>", "<cmd>make -C build/release<CR>")
+-- vim.keymap.set("n", "<leader><F4>", "<cmd>make -C build/release && /usr/local/bin/st -e bash -c 'bin/release/*;read'<CR>")
 
 -- markdown-preview
 -- vim.keymap.set("n", "<leader>md")
+
 
 -- run python script
 vim.keymap.set("n", "<leader>pr", "<cmd>w | !python3 %<CR>")
