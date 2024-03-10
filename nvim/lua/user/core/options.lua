@@ -21,7 +21,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "cpp", "python" },
-  command = "set tabstop=4 | set shiftwidth=4",
+  command = "set tabstop=2 | set shiftwidth=2",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cs" },
+  command = "set tabstop=2 | set shiftwidth=2",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
