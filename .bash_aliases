@@ -1,0 +1,25 @@
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+alias tree1='tree -L 1'
+alias tree2='tree -L 2'
+alias tree3='tree -L 3'
+
+# alias vim='nvim'
+alias mkdir='mkdir -p'
+alias open='xdg-open'
+alias settings='xfce4-settings-manager & exit'
+alias freeh='free -h'
+alias l1='ls -1'
+alias lh='ls -lh'
+alias upd='sudo apt update && sudo apt list --upgradable'
+alias upg='sudo apt upgrade'
+alias off='shutdown -h now'
+alias fd='fdfind'
+
+alias sn='sync_notes'
+alias pshell='poetry shell'
+alias commitdates='git log --pretty=format:"%Cred %h%Creset %Cgreen%cn%Creset %Cblue%cd%Creset %s"'
+
+alias neovim='nvim -u ~/.vimrc'
