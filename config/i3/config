@@ -1,7 +1,7 @@
 # win for special key
 set $mod Mod4
 
-font pango:Ubuntu Bold 10
+font pango:JetBrainsMono Bold 10
 
 # MOVES ########################################################################
 
@@ -146,7 +146,8 @@ focus_follows_mouse no
 # bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
-bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'Iosevka:Regular:pixelsize=17'
+bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'IosevkaSS04:Regular:pixelsize=17'
+# bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'JetBrainsMono:Light:pixelsize=16'
 bindsym Print exec --no-startup-id flameshot gui
 bindsym Control+Mod1+l exec --no-startup-id "i3lock -e -f -i ~/Pictures/wallpaper1366.png"
 bindsym $mod+F12 exec --no-startup-id ~/code/i3blocks-scripts/togglemouse
@@ -238,7 +239,8 @@ client.background       $frost1
 bar {
     height 25
 	position top
-	font pango:Iosevka Bold 10
+	font pango:IosevkaSS04 Bold 10
+	# font pango:JetBrainsMono Bold 9
 	status_command i3blocks
     tray_padding 1
     strip_workspace_numbers yes
@@ -273,7 +275,8 @@ assign [class="Telegram"] 3
 # bar {
 #     # height 30
 # 	position top
-#     font pango: Iosevka Bold 11.5
+#      font pango:IosevkaSS04 Bold 10
+#      font pango:JetBrainsMono Bold 9
 # 	status_command i3status
 #     tray_padding 1
 #     strip_workspace_numbers yes

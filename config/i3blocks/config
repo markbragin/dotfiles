@@ -79,7 +79,7 @@ border_left=0
 [calendar]
 command=~/code/i3blocks-scripts/calendar/calendar
 interval=1
-LABEL=📅 
+# LABEL=📅 
 min_width=11
 align=center
 border_top=1

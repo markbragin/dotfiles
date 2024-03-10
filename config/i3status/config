@@ -16,7 +16,6 @@ general {
     color_bad = "#bf617a" # Light red
 }
 
-order += "tztime local"
 order += "cpu_temperature 1"
 order += "load"
 order += "memory"
@@ -24,11 +23,12 @@ order += "volume master"
 order += "wireless _first_"
 order += "ethernet _first_"
 order += "battery 0"
+order += "tztime local"
 
 
 tztime local {
     format = " %a %d-%m-%Y %H:%M  "
-    min_width = 370
+    min_width = 1
 }
 
 cpu_temperature 1 {
@@ -68,7 +68,7 @@ ethernet _first_ {
 }
 
 battery 0 {
-    format = " %percentage⠀"
+    format = "  %percentage⠀"
     format_down = ""
     hide_seconds = true
     integer_battery_capacity = true
