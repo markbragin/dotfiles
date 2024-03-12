@@ -98,10 +98,11 @@ for_window [floating] border pixel 2
 
 exec --no-startup-id xrandr --output VGA-0 --off
 exec --no-startup-id redshift
-# exec --no-startup-id xss-lock -- i3lock -e -f -c 000000 -i ~/Pictures/wallpaper1366.png
-exec --no-startup-id xset s off -dpms
+exec --no-startup-id xss-lock -- antilocker.sh
+exec --no-startup-id xset s 600 600
+exec --no-startup-id xset -dpms
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
-exec --no-startup-id killall xidlehook; xidlehook --not-when-audio --not-when-fullscreen --timer 590 'notify-send -u Low "About to lock"' '' --timer 600 'i3lock -e -f -c 000000 -i ~/Pictures/wallpaper1366.png' '' --timer 300 'systemctl suspend' ''
+# exec --no-startup-id killall xidlehook; xidlehook --not-when-audio --not-when-fullscreen --timer 590 'notify-send -u Low "About to lock"' '' --timer 600 'i3lock -e -f -c 000000 -i ~/Pictures/wallpaper.png' '' --timer 300 'systemctl suspend' ''
 
 
 ################################################################################
@@ -123,7 +124,6 @@ exec_always --no-startup-id "xinput | rg -i 'touchpad.*id=(\d+)' -or '$1' | xarg
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
-bindsym $mod+F1 exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20 # increase screen brightness
@@ -143,13 +143,14 @@ floating_modifier $mod
 # mouse
 focus_follows_mouse no
 
-# bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'IosevkaSS04:Regular:pixelsize=17'
 # bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'JetBrainsMono:Light:pixelsize=16'
 bindsym Print exec --no-startup-id flameshot gui
-bindsym Control+Mod1+l exec --no-startup-id "i3lock -e -f -i ~/Pictures/wallpaper1366.png"
+bindsym Control+Mod1+l exec --no-startup-id lock.sh
+
+bindsym $mod+F1 exec --no-startup-id amixer -q -D pulse sset Master toggle
 bindsym $mod+F12 exec --no-startup-id ~/code/i3blocks-scripts/togglemouse
 bindsym $mod+F11 exec --no-startup-id ~/code/i3blocks-scripts/toggletouchpad
 
