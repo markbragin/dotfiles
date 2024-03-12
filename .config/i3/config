@@ -100,9 +100,8 @@ exec --no-startup-id xrandr --output VGA-0 --off
 exec --no-startup-id redshift
 exec --no-startup-id xss-lock -- antilocker
 exec --no-startup-id xset s 600 600
-exec --no-startup-id xset -dpms
+exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
-# exec --no-startup-id killall xidlehook; xidlehook --not-when-audio --not-when-fullscreen --timer 590 'notify-send -u Low "About to lock"' '' --timer 600 'i3lock -e -f -c 000000 -i ~/Pictures/wallpaper.png' '' --timer 300 'systemctl suspend' ''
 
 
 ################################################################################
