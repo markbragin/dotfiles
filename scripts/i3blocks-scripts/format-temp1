@@ -1,0 +1,21 @@
+#!/bin/bash
+
+temp=$(cat /sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input)
+temp=$((temp / 1000))
+
+red="'#bf616a'"
+yellow="'#ebcb8b'"
+blue="'#8fbcbb'"
+green="'#a3be8c'"
+
+if [[ ${temp} -ge 75 ]]; then
+    echo "<span foreground=${red}> ${temp}°C </span>"
+elif [[ ${temp} -ge 70 ]]; then
+    echo "<span foreground=${yellow}> ${temp}°C </span>"
+elif [[ ${temp} -ge 60 ]]; then
+    echo "<span foreground=${blue}> ${temp}°C </span>"
+else
+    echo "<span foreground=${green}> ${temp}°C </span>"
+fi
+
+# echo TEMP ${temp}"°C"

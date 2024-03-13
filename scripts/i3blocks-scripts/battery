@@ -1,0 +1,79 @@
+#!/bin/bash
+
+lvl30=1
+lvl20=1
+lvl10=1
+full=1
+
+blue="#88c0d0"
+green="#a3be8c"
+yellow="#ebcb8b"
+orange="#d08770"
+red="#bf616a"
+
+while :
+do
+    acpi=$(acpi | rg "(.*): (.*), (.*)%, (\d+:\d+):.*" -or '$1 $2 $3 $4')
+    text="${LABEL}"
+
+    if [[ "${acpi}" == "" ]]; then
+        text+="100%"
+        color=${blue}
+    else
+        params=($acpi)
+        state=${params[2]}
+        percent=${params[3]}
+        time=${params[4]}
+
+        # text
+        if [[ "${state}" == "Charging" ]]; then
+            text+="${percent}% CHR"
+            color=${blue}
+        else
+            text+="${percent}% DIS"
+            if [[ ${percent} -le 25 ]]; then
+                color=${red}
+            elif [[ ${percent} -le 50 ]]; then
+                color=${orange}
+            elif [[ ${percent} -le 75 ]]; then
+                color=${yellow}
+            else
+                color=${green}
+            fi
+        fi
+        text+=" (${time})"
+    fi
+
+    # output
+    echo "<span foreground='${color}'>${text}</span>"
+
+    # nofify
+    if [[ "${state}" == "Discharging" ]]; then
+        full=1
+        if [[ ${percent} -le 10 && ${lvl10} -eq 1 ]]; then
+            notify-send "Battery ${percent}%" -u critical -t 20000
+            lvl10=0
+        elif [[ ${percent} -le 20 && ${percent} -gt 10 && ${lvl20} -eq 1 ]]; then
+            notify-send "Battery ${percent}%" -u normal -t 20000
+            lvl20=0
+        elif [[ ${percent} -le 30 && ${percent} -gt 20 && ${lvl30} -eq 1 ]]; then
+            notify-send "Battery ${percent}%" -u normal -t 20000
+            lvl30=0
+        fi
+    else
+        if [[ ${percent} -ge 90 && ${full} -eq 1 ]]; then
+            notify-send "Battery charged" -u normal -t 20000
+            full=0
+        fi
+        lvl10=1
+        if [[ ${percent} -gt 10 ]]; then
+            lvl20=1
+        fi
+        if [[ ${percent} -gt 20 ]]; then
+            lvl30=1
+        fi
+    fi
+
+    sleep 5
+done
+
