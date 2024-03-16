@@ -50,7 +50,7 @@ if [[ ${confirm} == [yY] ]]; then
     sudo apt upgrade
     sudo apt install git tmux xclip vim-gtk3 vim htop ripgrep wget curl gcc \
         sudo software-properties-common vifm gh tree \
-        xorg xinit i3 i3lock xss-lock i3blocks dunst \
+        xorg xinit i3 i3lock xss-lock i3blocks dunst engrampa \
         checkinstall libnotify-bin xinput pulseaudio yad xdotool autoconf \
         pavucontrol network-manager pulseaudio-utils feh atril evince \
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full
@@ -108,7 +108,7 @@ fi
 # install Fonts
 
 echo
-read -p "Install fonts (Iosevka, JetBrainsMono)? [y/n]" confirm
+read -p "Install fonts (Iosevka, JetBrainsMono, Ubuntu)? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
     ${dotfiledir}/install-fonts.sh
 fi
