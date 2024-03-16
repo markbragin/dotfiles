@@ -103,18 +103,11 @@ exec --no-startup-id xset s 600 600
 exec --no-startup-id xset dpms 0 0 0
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
 
-
-################################################################################
-
-
-
-# LAYOUT #######################################################################
-
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us,ru -variant ,, -option grp:alt_shift_toggle -option compose:ralt"
 exec_always --no-startup-id "xset r rate 300 30"
 exec_always --no-startup-id "xinput | rg -i 'touchpad.*id=(\d+)' -or '$1' | xargs -I '{}' xinput --disable '{}'"
+exec_always --no-startup-id "xinput | rg -i 'Mouse.+id=(\d+)' -or '$1' | xargs -I {} xinput --set-prop {} 'libinput Accel Speed' -0.62"
 
-# bindsym Mod1+e exec --no-startup-id pkill -RTMIN+2 i3blocks
 ################################################################################
 
 # CONTROLS #################################################################
