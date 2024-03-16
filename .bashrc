@@ -128,6 +128,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export PATH=$PATH:/usr/sbin
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:~/.python3.10/bin

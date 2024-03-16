@@ -53,7 +53,8 @@ if [[ ${confirm} == [yY] ]]; then
         xorg xinit i3 i3lock xss-lock i3blocks dunst engrampa \
         checkinstall libnotify-bin xinput pulseaudio yad xdotool autoconf \
         pavucontrol network-manager pulseaudio-utils feh atril evince \
-        fonts-symbola ristretto ffmpeg thunar arc-theme python3-full
+        fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
+        pulseaudio-module-jack acpi
 fi
 
 # install st

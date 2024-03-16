@@ -1,0 +1,25 @@
+#!/bin/bash
+
+VOL_DELTA=5
+UNMUTED='🔊'
+MUTED='🔇'
+DEFAULT_COLOR="'#88c0d0'"
+MUTED_COLOR="'#bf616a'"
+
+if [[ $BLOCK_BUTTON -eq 2 ]]; then
+    amixer -q sset Master toggle
+elif [[ $BLOCK_BUTTON -eq 4 ]]; then
+    amixer -q sset Master $VOLUME_DELTA%+
+elif [[ $BLOCK_BUTTON -eq 5 ]]; then
+    amixer -q sset Master $VOLUME_DELTA%-
+fi
+
+AMIXER=$(amixer get Master | tail -n 1)
+VOL=$(echo $AMIXER | rg -i '\[(\d+)%\]' -or '$1')
+STATUS=$(echo $AMIXER | rg -i '\[(\w+)\]' -or '$1')
+
+if [ $STATUS == "on" ]; then
+    echo "<span foreground=${DEFAULT_COLOR}>${UNMUTED} ${VOL}%</span>"
+else
+    echo "<span foreground=${MUTED_COLOR}>${MUTED} ${VOL}%</span>"
+fi

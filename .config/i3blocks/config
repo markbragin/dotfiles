@@ -26,8 +26,8 @@ color=#88c0d0
 border=#88c0d0
 # markup=none
 
-[temperature1]
-command=~/scripts/i3blocks-scripts/format-temp1
+[temperature]
+command=~/scripts/i3blocks-scripts/format-temp
 interval=5
 markup=pango
 border_top=1
@@ -36,7 +36,7 @@ border_bottom=0
 border_left=0
 
 [cpu_usage2]
-command=~/scripts/i3blocks-scripts/cpu_usage2/cpu_usage2
+command=~/scripts/i3blocks-scripts/cpu_usage2
 markup=pango
 interval=persist
 border_top=1
@@ -45,28 +45,23 @@ border_bottom=0
 border_left=0
 
 [ram]
-command=~/scripts/i3blocks-scripts/memory/memory
+command=~/scripts/i3blocks-scripts/memory
 interval=5
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
-[volume-pulseaudio]
-command=~/scripts/i3blocks-scripts/volume-pulseaudio/volume-pulseaudio
-LABEL=🔊
+[volume]
+command=~/scripts/i3blocks-scripts/volume
+markup=pango
 interval=1
-LONG_FORMAT="${SYMB}${VOL}%"
-SHORT_FORMAT="${SYMB}${VOL}%"
-DEFAULT_COLOR="#88c0d0"
-MUTED_COLOR="#bf616a"
 border_top=1
 border_right=0
 border_bottom=0
 border_left=0
 
 [battery]
-# command=~/.local/share/i3blocks-contrib/battery/battery
 command=~/scripts/i3blocks-scripts/battery
 interval=persist
 LABEL=🔋 
@@ -77,7 +72,7 @@ border_bottom=0
 border_left=0
 
 [calendar]
-command=~/scripts/i3blocks-scripts/calendar/calendar
+command=~/scripts/i3blocks-scripts/calendar
 interval=1
 # LABEL=📅 
 min_width=11
