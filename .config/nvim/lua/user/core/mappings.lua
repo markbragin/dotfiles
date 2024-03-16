@@ -40,7 +40,11 @@ vim.keymap.set("n", "<C-Down>", "<C-w>-")
 -- replace word in the whole doc
 vim.keymap.set("n", "<space>ss",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+-- make script executable
 vim.keymap.set("n", "<leader>sx", "<cmd>!chmod +x %<CR>", { silent = true })
+-- run srcipt
+vim.keymap.set("n", "<leader>sr", "<cmd>!%:p<CR>", { silent = true })
 
 -- edit/reload config
 vim.keymap.set("n", "<leader>ev", "<cmd>e $MYVIMRC<CR>")
