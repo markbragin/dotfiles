@@ -138,7 +138,6 @@ focus_follows_mouse no
 bindsym $mod+Return exec --no-startup-id st
 bindsym $mod+Shift+Return exec --no-startup-id alacritty
 bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'IosevkaSS04:Regular:pixelsize=17'
-# bindsym Control+space exec --no-startup-id dmenu_run -i -nb '#2e3440' -nf '#88c0d0' -sb '#88c0d0' -sf '#2e3440' -fn 'JetBrainsMono:Light:pixelsize=16'
 bindsym Print exec --no-startup-id flameshot gui
 bindsym Control+Mod1+l exec --no-startup-id lock
 

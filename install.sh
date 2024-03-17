@@ -54,7 +54,7 @@ if [[ ${confirm} == [yY] ]]; then
         checkinstall libnotify-bin xinput pulseaudio yad xdotool autoconf \
         pavucontrol network-manager pulseaudio-utils feh atril evince \
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
-        pulseaudio-module-jack acpi playerctl
+        pulseaudio-module-jack acpi playerctl fd-find
 fi
 
 # install st
