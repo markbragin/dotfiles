@@ -3,43 +3,12 @@
 # dotfiles directory
 dotfiledir="${HOME}/dotfiles"
 
+
+# symlinks
 echo
-read -p "Symlinks? [y/n]" confirm
+read -p "Create symlinks? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
-    # list of files/folders to symlink in ${homedir}
-    files=(
-        .bashrc
-        .bash_aliases
-        .vimrc
-        .tmux.conf
-        scripts
-    )
-
-    cd "${dotfiledir}" || exit
-    for file in "${files[@]}"; do
-        echo "Creating symlink to $file in home directory."
-        ln -sf "${dotfiledir}/${file}" "${HOME}/${file}"
-    done
-
-    mkdir -p $HOME/.config
-    cd ".config" || exit
-    files=$(ls)
-    for file in $files; do
-        echo "Creating symlink to ${file} in home directory."
-        ln -sf "${dotfiledir}/.config/${file}" "${HOME}/.config/${file}"
-    done
-
-    mkdir -p $HOME/bin
-    files=$(ls $HOME/scripts/*.sh)
-    for i in $files; do
-        link=$(echo $i | xargs basename | sed "s/.sh//")
-        echo "Creating symlink to ${i} in ~/bin directory."
-        ln -fs "${i}" "${HOME}/bin/${link}"
-    done
-
-    mkdir -p "${HOME}/.local/share"
-    cp -r "${HOME}/scripts/cmakegen-src" "${HOME}/.local/share"
-    cp -r "${HOME}/scripts/cgen-src" "${HOME}/.local/share"
+    ${dotfiledir}/create-symlinks.sh
 fi
 
 # install shit
@@ -54,11 +23,10 @@ if [[ ${confirm} == [yY] ]]; then
         checkinstall libnotify-bin xinput pulseaudio yad xdotool autoconf \
         pavucontrol network-manager pulseaudio-utils feh atril evince \
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
-        pulseaudio-module-jack acpi playerctl fd-find
+        pulseaudio-module-jack acpi playerctl fd-find fzf
 fi
 
 # install st
-
 echo
 read -p "Install st? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -66,7 +34,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # install ly (diplay manager)
-
 echo
 read -p "Install ly? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -74,7 +41,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # i3blocks
-
 echo
 read -p "Install i3blocks 1.5? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -82,7 +48,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # install firefox
-
 echo
 read -p "Install firefox? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -90,7 +55,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # install neovim
-
 echo
 read -p "Install neovim? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -107,7 +71,6 @@ fi
 
 
 # install Fonts
-
 echo
 read -p "Install fonts (Iosevka, JetBrainsMono, Ubuntu)? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -115,7 +78,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # wallpaper
-
 echo
 read -p "Create wallpaper for i3? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -129,7 +91,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # install icons
-
 echo
 read -p "Install tela icons? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
@@ -137,7 +98,6 @@ if [[ ${confirm} == [yY] ]]; then
 fi
 
 # install envycontrol
-
 echo
 read -p "Install envycontrol? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
