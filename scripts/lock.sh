@@ -1,12 +1,27 @@
 #!/bin/bash
 
-i3lock -e -u -f -c 000000 -i ~/Pictures/wallpaper.png &
+revert() {
+    xset dpms 0 0 0
+    kill $!
+}
+
+suspend_in_background() {
+    (
+        while true; do
+            status=$(xset q | rg "Monitor is (\w+)" -or '$1')
+            if [ $status == "Off" ]; then
+                systemctl suspend
+            fi
+            sleep 5
+        done
+    ) &
+}
+
+trap revert HUP INT TERM
+
+revert
+xset dpms 30 30 600
 playerctl -a pause
-
-sleep 60
-locker_pid=$(ps -eo pid,cmd | rg -i "(\d+) i3lock" -or '$1')
-kill -0 $locker_pid && xset dpms force suspend
-
-sleep 600
-locker_pid=$(ps -eo pid,cmd | rg -i "(\d+) i3lock" -or '$1')
-kill -0 $locker_pid && systemctl suspend
+suspend_in_background
+i3lock -e -u -n -f -c 000000 -i ~/Pictures/wallpaper.png
+revert
