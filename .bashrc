@@ -137,8 +137,9 @@ export PATH=$PATH:~/.cargo/bin
 
 bind 'set completion-ignore-case on'
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
