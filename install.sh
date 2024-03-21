@@ -24,7 +24,7 @@ if [[ ${confirm} == [yY] ]]; then
         pavucontrol network-manager pulseaudio-utils feh atril evince \
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
         pulseaudio-module-jack acpi playerctl fd-find fzf flameshot \
-        cmus youtube-dl eyed3
+        cmus youtube-dl eyed3 python-is-python3
 fi
 
 # install st
