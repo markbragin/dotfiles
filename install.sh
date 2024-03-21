@@ -18,7 +18,7 @@ if [[ ${confirm} == [yY] ]]; then
     sudo apt update
     sudo apt upgrade
     sudo apt install git tmux xclip vim-gtk3 vim htop ripgrep wget curl gcc \
-        sudo software-properties-common vifm gh tree \
+        sudo software-properties-common vifm gh tree gdb \
         xorg xinit i3 i3lock xss-lock i3blocks dunst engrampa \
         checkinstall libnotify-bin xinput pulseaudio yad xdotool autoconf \
         pavucontrol network-manager pulseaudio-utils feh atril evince \
