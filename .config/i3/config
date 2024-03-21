@@ -236,7 +236,7 @@ bar {
     height 25
 	position top
 	font pango:IosevkaSS04 Bold 10
-	# font pango:JetBrainsMono Bold 9
+	# font pango:JetBrainsMonoNerdFont Bold 9
 	status_command i3blocks
     tray_padding 1
     strip_workspace_numbers yes

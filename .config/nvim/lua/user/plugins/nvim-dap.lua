@@ -1,5 +1,9 @@
 return {
   'mfussenegger/nvim-dap',
+  dependencies = {
+    "mfussenegger/nvim-dap",
+    "nvim-neotest/nvim-nio"
+  },
   config = function ()
     local dap = require('dap')
     -- default adapters
@@ -7,6 +11,12 @@ return {
       id = 'cppdbg',
       type = 'executable',
       command = '/home/delbik/.local/share/nvim/mason/bin/OpenDebugAD7'
+    }
+
+    dap.adapters.debugpy = {
+      id = 'debugpy',
+      type = 'executable',
+      command = '/home/delbik/.local/share/nvim/mason/bin/debugpy-adapter'
     }
 
     -- mapping (:h dap-mapping)
@@ -49,6 +59,18 @@ return {
         program = "${fileBasenameNoExtension}",
         MIMode = "gdb",
         miDebuggerPath = "/usr/bin/gdb",
+      },
+    }
+
+    dap.configurations.python = {
+      {
+        type = "debugpy",
+        name = "raw",
+        request = "launch",
+        cwd = "${workspaceFolder}",
+        program = "${file}",
+        -- MIMode = "gdb",
+        -- miDebuggerPath = "/usr/bin/gdb",
       },
     }
   end
