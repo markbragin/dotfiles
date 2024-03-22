@@ -36,7 +36,7 @@ border_bottom=0
 border_left=0
 
 [cpu_usage2]
-command=~/scripts/i3blocks-scripts/cpu_usage2
+command=~/scripts/i3blocks-scripts/cpu_usage2/cpu_usage2
 markup=pango
 interval=persist
 border_top=1
