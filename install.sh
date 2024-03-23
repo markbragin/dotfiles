@@ -25,6 +25,8 @@ if [[ ${confirm} == [yY] ]]; then
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
         pulseaudio-module-jack acpi playerctl fd-find flameshot \
         cmus youtube-dl eyed3 python-is-python3
+    # tmux.tpm
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # install st
