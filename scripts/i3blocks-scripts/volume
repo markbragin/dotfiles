@@ -9,9 +9,9 @@ MUTED_COLOR="'#bf616a'"
 if [[ $BLOCK_BUTTON -eq 2 ]]; then
     amixer -q sset Master toggle
 elif [[ $BLOCK_BUTTON -eq 4 ]]; then
-    amixer -q sset Master $VOLUME_DELTA%+
+    amixer -q sset Master $VOL_DELTA%+
 elif [[ $BLOCK_BUTTON -eq 5 ]]; then
-    amixer -q sset Master $VOLUME_DELTA%-
+    amixer -q sset Master $VOL_DELTA%-
 fi
 
 AMIXER=$(amixer get Master | tail -n 1)
