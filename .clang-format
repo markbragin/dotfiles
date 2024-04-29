@@ -4,5 +4,15 @@ IndentWidth: 4
 PointerAlignment: Right
 ColumnLimit: 80
 SortIncludes: true
-AllowShortFunctionsOnASingleLine: false
+
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+
+AlignAfterOpenBracket: true
+AlignTrailingComments: true
+
+Cpp11BracedListStyle: true
 ...
