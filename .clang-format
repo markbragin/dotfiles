@@ -1,0 +1,8 @@
+---
+BasedOnStyle: WebKit
+IndentWidth: 4
+PointerAlignment: Right
+ColumnLimit: 80
+SortIncludes: true
+AllowShortFunctionsOnASingleLine: false
+...

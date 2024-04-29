@@ -15,17 +15,7 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "vim" },
-  command = "set tabstop=2 | set shiftwidth=2",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp", "python" },
-  command = "set tabstop=2 | set shiftwidth=2",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "cs" },
+  pattern = { "lua", "vim"},
   command = "set tabstop=2 | set shiftwidth=2",
 })
 
