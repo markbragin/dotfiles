@@ -142,3 +142,4 @@ bind 'set completion-ignore-case on'
 export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+export MANWIDTH=80
