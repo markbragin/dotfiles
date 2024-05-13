@@ -13,8 +13,7 @@ vim.keymap.set({ "n", "v" }, "<space>d", [["_d]])
 -- greatest remap ever
 vim.keymap.set("x", "<space>p", [["_dP]])
 
--- This is going to get me cancelled
-vim.keymap.set("i", "jj", "<Esc>")
+-- vim.keymap.set("i", "jj", "<Esc>")
 
 vim.keymap.set("n", "Q", "<nop>")
 

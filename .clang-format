@@ -12,8 +12,9 @@ AllowShortLoopsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 
 AlignAfterOpenBracket: true
-AlignTrailingComments: true
 AlignConsecutiveAssignments: true
+AlignTrailingComments: true
+
 BracedInitializerIndentWidth: 4
 
 Cpp11BracedListStyle: true

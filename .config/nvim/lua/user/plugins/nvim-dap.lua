@@ -6,6 +6,7 @@ return {
   },
   config = function ()
     local dap = require('dap')
+
     -- default adapters
     dap.adapters.cppdbg = {
       id = 'cppdbg',
@@ -32,13 +33,6 @@ return {
 
     -- autoload .launch.json config
     vim.cmd("lua require('dap.ext.vscode').load_launchjs(vim.fn.getcwd() .. '/.launch.json', { cppdbg = {'cpp'} })")
-
-    -- default external terminal
-    -- dap.defaults.fallback.force_external_terminal = true
-    -- dap.defaults.fallback.external_terminal = {
-    --   command = '/usr/bin/alacritty';
-    --   args = {'-e'};
-    -- }
 
     -- default configurations
     dap.configurations.cpp = {
@@ -75,4 +69,3 @@ return {
     }
   end
 }
-
