@@ -21,5 +21,5 @@ revert
 xset dpms 30 30 600
 playerctl -a pause
 suspend_in_background &
-i3lock -e -u -n -f -c 000000 -i ~/Pictures/wallpaper.png
+i3lock -e -n -f -c 000000 -i ~/Pictures/wallpaper.png
 revert
