@@ -9,12 +9,12 @@ return {
     {
       "L3MON4D3/LuaSnip",
       version = "v2.*",
-      build = "make install_jsregexp"
+      build = "make install_jsregexp",
+      -- dependencies = {'rafamadriz/friendly-snippets'},
     },
     'saadparwaiz1/cmp_luasnip',
-    'rafamadriz/friendly-snippets',
   },
-  config = function ()
+  config = function()
     local has_words_before = function()
       unpack = unpack or table.unpack
       local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -26,13 +26,14 @@ return {
     local luasnip = require('luasnip')
     -- Set up nvim-cmp.
     cmp.setup({
+      preselect = cmp.PreselectMode.None,
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
       window = {
-        --completion = cmp.config.window.bordered(),
+        completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
       mapping = cmp.mapping.preset.insert({

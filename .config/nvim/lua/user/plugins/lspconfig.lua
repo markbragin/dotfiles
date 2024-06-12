@@ -11,7 +11,7 @@ return {
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
@@ -115,37 +115,37 @@ return {
     }
   }
 
-  lspconfig['texlab'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-      cmd = {
-        "texlab",
-      },
-      filetypes = {
-        "tex",
-        "plaintex",
-        "bib",
-      },
-      texlab = {
-        build = {
-          args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-          executable = "latexmk",
-          forwardSearchAfter = false,
-          onSave = true,
-        },
-        latexFormatter = "latexindent",
-        latexindent = {
-          modifyLineBreaks = false
-        },
-        rootDirectory = ".",
-      },
-      init_options = {
-        buildDirectory = "build",
-      },
-      single_file_support = true,
-    }
-  }
+  -- lspconfig['texlab'].setup {
+  --   capabilities = capabilities,
+  --   on_attach = on_attach,
+  --   settings = {
+  --     cmd = {
+  --       "texlab",
+  --     },
+  --     filetypes = {
+  --       "tex",
+  --       "plaintex",
+  --       "bib",
+  --     },
+  --     texlab = {
+  --       build = {
+  --         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+  --         executable = "latexmk",
+  --         forwardSearchAfter = false,
+  --         onSave = true,
+  --       },
+  --       latexFormatter = "latexindent",
+  --       latexindent = {
+  --         modifyLineBreaks = false
+  --       },
+  --       rootDirectory = ".",
+  --     },
+  --     init_options = {
+  --       buildDirectory = "build",
+  --     },
+  --     single_file_support = true,
+  --   }
+  -- }
   -- some settings
   vim.diagnostic.config({ virtual_text = false })
 end

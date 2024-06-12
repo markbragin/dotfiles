@@ -1,7 +1,6 @@
 return {
   -- coolshit
-  'booperlv/nvim-gomove',
-  'szw/vim-maximizer',
+  'szw/vim-maximizer', -- maximize pane
   'christoomey/vim-tmux-navigator',
 
   -- tpope
@@ -20,7 +19,6 @@ return {
       })
     end
   },
-
   {
     'sainnhe/sonokai',
     lazy = false,
@@ -30,11 +28,6 @@ return {
       vim.g.sonokai_better_performance = 1
       vim.cmd([[colorscheme sonokai]])
     end
-  },
-
-  {
-    'nvim-telescope/telescope-fzf-native.nvim',
-    build = 'make'
   },
 
   {

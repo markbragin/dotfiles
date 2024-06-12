@@ -63,8 +63,6 @@ return {
         request = "launch",
         cwd = "${workspaceFolder}",
         program = "${file}",
-        -- MIMode = "gdb",
-        -- miDebuggerPath = "/usr/bin/gdb",
       },
     }
   end
