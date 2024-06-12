@@ -1,6 +1,6 @@
 return {
   'windwp/nvim-autopairs',
-  config = {
+  opts = {
     fast_wrap = {}
   }
 }

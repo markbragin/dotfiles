@@ -1,6 +1,6 @@
 return {
   'booperlv/nvim-gomove',
-  config = {
+  opts = {
     -- whether or not to vim.keymap.set default key bindings, (true/false)
     map_defaults = true,
     -- whether or not to reindent lines moved vertically (true/false)

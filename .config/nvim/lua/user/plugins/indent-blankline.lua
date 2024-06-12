@@ -1,7 +1,7 @@
 return {
   'lukas-reineke/indent-blankline.nvim',
   main = "ibl",
-  config = {
+  opts = {
     -- char_highlight_list = {
     --   "IndentBlanklineIndent1",
     --   "IndentBlanklineIndent2",
