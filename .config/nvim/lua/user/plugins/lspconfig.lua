@@ -16,13 +16,28 @@ return {
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
     vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
 
+    local border = {
+      { "╭", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╮", "FloatBorder" },
+      { "│", "FloatBorder" },
+      { "╯", "FloatBorder" },
+      { "─", "FloatBorder" },
+      { "╰", "FloatBorder" },
+      { "│", "FloatBorder" },
+    }
+    local handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+    }
+
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
-    local on_attach = function(client, bufnr)
+    local on_attach = function(_, bufnr)
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
-      -- vim.keymap.set('n', '<space>', vim.lsp.buf.signature_help, bufopts)
+      vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -40,6 +55,7 @@ return {
     lspconfig['pyright'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
+      handlers = handlers,
     }
 
     lspconfig['clangd'].setup {
@@ -54,6 +70,7 @@ return {
           enable = false
         }
       },
+      handlers = handlers,
     }
 
     lspconfig['csharp_ls'].setup {
@@ -72,81 +89,84 @@ return {
           enable = false
         }
       },
+      handlers = handlers,
     }
 
     lspconfig['lua_ls'].setup({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = { -- custom settings for lua
-      Lua = {
-        -- make the language server recognize "vim" global
-        diagnostics = {
-          enable = true,
-          globals = { 'vim' },
-        },
-        workspace = {
-          -- make language server aware of runtime files
-          library = {
-            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-            [vim.fn.stdpath("config") .. "/lua"] = true,
+        Lua = {
+          -- make the language server recognize "vim" global
+          diagnostics = {
+            enable = true,
+            globals = { 'vim' },
           },
+          workspace = {
+            -- make language server aware of runtime files
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+          completions = {
+            displayContext = true,
+          }
         },
-        completions = {
-          displayContext = true,
-        }
       },
-    },
-  })
+      handlers = handlers,
+    })
 
-  lspconfig['cmake'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = {
-      cmd = {
-        "cmake-language-server",
+    lspconfig['cmake'].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        cmd = {
+          "cmake-language-server",
+        },
+        filetypes = {
+          "cmake",
+        },
+        init_options = {
+          buildDirectory = "build",
+        },
+        single_file_support = true,
       },
-      filetypes = {
-        "cmake",
-      },
-      init_options = {
-        buildDirectory = "build",
-      },
-      single_file_support = true,
+      handlers = handlers,
     }
-  }
 
-  -- lspconfig['texlab'].setup {
-  --   capabilities = capabilities,
-  --   on_attach = on_attach,
-  --   settings = {
-  --     cmd = {
-  --       "texlab",
-  --     },
-  --     filetypes = {
-  --       "tex",
-  --       "plaintex",
-  --       "bib",
-  --     },
-  --     texlab = {
-  --       build = {
-  --         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-  --         executable = "latexmk",
-  --         forwardSearchAfter = false,
-  --         onSave = true,
-  --       },
-  --       latexFormatter = "latexindent",
-  --       latexindent = {
-  --         modifyLineBreaks = false
-  --       },
-  --       rootDirectory = ".",
-  --     },
-  --     init_options = {
-  --       buildDirectory = "build",
-  --     },
-  --     single_file_support = true,
-  --   }
-  -- }
-  -- some settings
-  vim.diagnostic.config({ virtual_text = false })
-end
+    -- lspconfig['texlab'].setup {
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   settings = {
+    --     cmd = {
+    --       "texlab",
+    --     },
+    --     filetypes = {
+    --       "tex",
+    --       "plaintex",
+    --       "bib",
+    --     },
+    --     texlab = {
+    --       build = {
+    --         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+    --         executable = "latexmk",
+    --         forwardSearchAfter = false,
+    --         onSave = true,
+    --       },
+    --       latexFormatter = "latexindent",
+    --       latexindent = {
+    --         modifyLineBreaks = false
+    --       },
+    --       rootDirectory = ".",
+    --     },
+    --     init_options = {
+    --       buildDirectory = "build",
+    --     },
+    --     single_file_support = true,
+    --   }
+    -- }
+    -- some settings
+    vim.diagnostic.config({ virtual_text = false })
+  end
 }

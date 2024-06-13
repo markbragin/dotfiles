@@ -260,6 +260,7 @@ for_window [class="Yad"] floating enable
 for_window [class="Anki"] floating enable
 for_window [class="Timer"] floating enable
 for_window [class="st"] floating enable
+for_window [class="Suckfish"] floating enable
 
 assign [class="firefox"] 1
 assign [class="Telegram"] 3
