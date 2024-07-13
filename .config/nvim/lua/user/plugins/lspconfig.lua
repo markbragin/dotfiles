@@ -11,10 +11,10 @@ return {
     -- Mappings.
     -- See `:help vim.diagnostic.*` for documentation on any of the below functions
     local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', 'H', vim.diagnostic.open_float, opts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+    vim.keymap.set('n', 'H', vim.diagnostic.open_float, opts)
 
     local border = {
       { "╭", "FloatBorder" },
@@ -30,6 +30,15 @@ return {
       ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
       ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
     }
+    local go_handlers = {
+      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
+      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
+      ["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          virtual_text = true
+        }
+      )
+    }
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
@@ -37,6 +46,7 @@ return {
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
       vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, bufopts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -73,23 +83,10 @@ return {
       handlers = handlers,
     }
 
-    lspconfig['csharp_ls'].setup {
+    lspconfig['gopls'].setup {
       capabilities = capabilities,
-      handlers = {
-        ["textDocument/definition"] = require('csharpls_extended').handler,
-        ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
-      },
       on_attach = on_attach,
-      settings = {
-        filetypes = { "c#" },
-        inlineHints = {
-          enable = false,
-        },
-        giagnostics = {
-          enable = false
-        }
-      },
-      handlers = handlers,
+      handlers = go_handlers,
     }
 
     lspconfig['lua_ls'].setup({
@@ -133,6 +130,25 @@ return {
         single_file_support = true,
       },
       handlers = handlers,
+    }
+
+    lspconfig['csharp_ls'].setup {
+      capabilities = capabilities,
+      handlers = {
+        ["textDocument/definition"] = require('csharpls_extended').handler,
+        ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
+      },
+      on_attach = on_attach,
+      settings = {
+        filetypes = { "c#" },
+        inlineHints = {
+          enable = false,
+        },
+        giagnostics = {
+          enable = false
+        }
+      },
+      -- handlers = handlers,
     }
 
     -- lspconfig['texlab'].setup {
