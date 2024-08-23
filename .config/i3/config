@@ -261,6 +261,7 @@ for_window [class="Anki"] floating enable
 for_window [class="Timer"] floating enable
 for_window [class="st"] floating enable
 for_window [class="Suckfish"] floating enable
+for_window [title="Media viewer"] fullscreen enable
 
 assign [class="firefox"] 1
 assign [class="Telegram"] 3
@@ -272,8 +273,8 @@ assign [class="Telegram"] 3
 # bar {
 #     # height 30
 # 	position top
-#      font pango:IosevkaSS04 Bold 10
-#      font pango:JetBrainsMono Bold 9
+# 	font pango:IosevkaSS04 Bold 10
+# 	# font pango:JetBrainsMonoNerdFont Bold 9
 # 	status_command i3status
 #     tray_padding 1
 #     strip_workspace_numbers yes

@@ -25,8 +25,6 @@ if [[ ${confirm} == [yY] ]]; then
         fonts-symbola ristretto ffmpeg thunar arc-theme python3-full \
         pulseaudio-module-jack acpi playerctl fd-find flameshot \
         cmus youtube-dl eyed3 python-is-python3
-    # tmux.tpm
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 # install st
@@ -70,6 +68,13 @@ read -p "Download vim plug for vim? [y/n]" confirm
 if [[ ${confirm} == [yY] ]]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+# tmux.tpm
+echo
+read -p "Download tpm for tmux? [y/n]" confirm
+if [[ ${confirm} == [yY] ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
 

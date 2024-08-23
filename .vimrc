@@ -36,6 +36,7 @@ Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'matze/vim-move'
 Plug 'jiangmiao/auto-pairs'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Plug 'tpope/vim-fugitive'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
