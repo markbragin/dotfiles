@@ -1,11 +1,13 @@
 #!/bin/bash
 
-dev_id=$(xinput | rg -i "Mouse.+id=(\d+)" -or '$1')
-state=$(xinput --list-props ${dev_id} | rg "Device Enabled.*:.*(\d+)" -or '$1')
+dev_ids=$(xinput | rg -i "Mouse.+id=(\d+)" -or '$1')
+for dev_id in $dev_ids; do
+    state=$(xinput --list-props ${dev_id} | rg "Device Enabled.*:.*(\d+)" -or '$1')
 
-echo ${state}
-if [[ ${state} -eq 1 ]]; then
-    xinput disable ${dev_id}
-else
-    xinput enable ${dev_id}
-fi
+    echo ${state}
+    if [[ ${state} -eq 1 ]]; then
+        xinput disable ${dev_id}
+    else
+        xinput enable ${dev_id}
+    fi
+done

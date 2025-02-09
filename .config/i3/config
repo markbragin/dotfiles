@@ -96,7 +96,7 @@ for_window [floating] border pixel 2
 
 # AUTOSTART ####################################################################
 
-exec --no-startup-id xrandr --output VGA-0 --off
+# exec --no-startup-id xrandr --output VGA-0 --off
 exec --no-startup-id redshift
 exec --no-startup-id xss-lock -- antilocker
 exec --no-startup-id xset s 600 600

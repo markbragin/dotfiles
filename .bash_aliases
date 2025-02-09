@@ -15,7 +15,7 @@ alias l1='ls -1'
 alias lh='ls -lh'
 alias l='ls -l'
 alias la='ls -la'
-alias upd='sudo apt update && sudo apt list --upgradable'
+alias upd='sudo apt update; sudo apt list --upgradable'
 alias upg='sudo apt upgrade'
 alias reboot='systemctl reboot'
 alias off='systemctl poweroff'
@@ -27,3 +27,4 @@ alias commitdates='git log --pretty=format:"%Cred %h%Creset %Cgreen%cn%Creset %C
 
 alias neovim='nvim -u ~/.vimrc'
 alias cb='xclip -selection "clipboard"'
+alias ip='ip -c'
