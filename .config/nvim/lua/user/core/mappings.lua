@@ -48,6 +48,12 @@ vim.keymap.set("n", "<leader>sr", "<cmd>!%:p<CR>", { silent = true })
 -- edit/reload config
 vim.keymap.set("n", "<leader>ev", "<cmd>e $MYVIMRC<CR>")
 vim.keymap.set("n", "<leader>sv", "<cmd>so $MYVIMRC<CR>")
+-- edit mappings
+vim.keymap.set("n", "<leader>em", "<cmd>e $HOME/.config/nvim/lua/user/core/mappings.lua<CR>")
+-- edit options
+vim.keymap.set("n", "<leader>eo", "<cmd>e $HOME/.config/nvim/lua/user/core/options.lua<CR>")
+-- open file browser in plugins directory
+vim.keymap.set('n', '<leader>ep', "<cmd>Telescope file_browser path=$HOME/.config/nvim/lua/user/plugins<CR>", {})
 
 -- buffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
@@ -97,7 +103,10 @@ vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
 -- run python script
 vim.keymap.set("n", "<leader>pr", "<cmd>w | !python3 %<CR>")
 -- run black
-vim.keymap.set("n", "<leader>pb", "<cmd>w | !black -l 79 %<CR> <cmd>e<CR>")
+vim.keymap.set("n", "<leader>pb", "<cmd>w | !black -l 100 %<CR> <cmd>e<CR>")
+
+-- run lua script
+vim.keymap.set("n", "<leader>lr", "<cmd>w | !lua %<CR>")
 
 -- build latex doc
 vim.keymap.set("n", "<leader>tb", "<cmd>TexlabBuild<CR>")

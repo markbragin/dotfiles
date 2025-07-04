@@ -104,10 +104,14 @@ return {
             library = {
               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
               [vim.fn.stdpath("config") .. "/lua"] = true,
+              -- [vim.fn.expand("$HOME/.luarocks/")] = true,
             },
           },
           completions = {
             displayContext = true,
+          },
+          hint = {
+            enable = true,
           }
         },
       },
@@ -144,12 +148,13 @@ return {
         inlineHints = {
           enable = false,
         },
-        giagnostics = {
+        diagnostics = {
           enable = false
         }
       },
       -- handlers = handlers,
     }
+
 
     -- lspconfig['texlab'].setup {
     --   capabilities = capabilities,

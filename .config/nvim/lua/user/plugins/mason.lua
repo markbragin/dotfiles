@@ -1,7 +1,9 @@
 return {
   'williamboman/mason.nvim',
+  version = "^1.0.0",
   dependencies = {
-    'williamboman/mason-lspconfig.nvim',
+    { 'williamboman/mason-lspconfig.nvim', version = "^1.0.0" },
+    -- {'williamboman/mason-lspconfig.nvim'},
   },
   config = function()
     require('mason').setup()
@@ -15,8 +17,7 @@ return {
         "cmake",
       },
       -- auto-install configured servers (with lspconfig)
-      automatic_installation = true, -- not the same as ensure_installed
+      -- automatic_enable = true, -- not the same as ensure_installed
     })
   end
 }
-
