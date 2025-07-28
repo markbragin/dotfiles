@@ -6,23 +6,13 @@ vim.opt.nu = true
 vim.opt.relativenumber = true
 
 -- tabs & indentation
-vim.opt.tabstop = 4 -- 4 spaces for tabs (prettier default)
-vim.opt.shiftwidth = 4 -- 4 spaces for indent width
-vim.opt.expandtab = true -- expand tab to spaces
+vim.opt.tabstop = 4       -- 4 spaces for tabs (prettier default)
+vim.opt.shiftwidth = 4    -- 4 spaces for indent width
+vim.opt.expandtab = true  -- expand tab to spaces
 vim.opt.autoindent = true -- copy indent from current line when starting new one
 vim.opt.copyindent = true
 vim.opt.smarttab = true
 vim.opt.smartindent = true
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "lua", "vim", "go" },
-  command = "set tabstop=2 | set shiftwidth=2",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown" },
-  command = "setlocal spelllang=en,ru | setlocal spell",
-})
 
 vim.opt.wrap = false
 
@@ -62,3 +52,11 @@ vim.cmd([[
 
 -- open help with vertical split
 vim.cmd("cabbrev h vert bo h")
+
+-- filetype
+vim.filetype.add({
+  extension = {
+    h = 'c',
+    hpp = 'cpp',
+  }
+})

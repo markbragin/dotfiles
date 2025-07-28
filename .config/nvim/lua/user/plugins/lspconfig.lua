@@ -8,37 +8,21 @@ return {
   config = function()
     local lspconfig = require('lspconfig')
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
-    -- Mappings.
-    -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-    local opts = { noremap = true, silent = true }
-    vim.keymap.set('n', 'H', vim.diagnostic.open_float, opts)
-    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-    vim.keymap.set('n', 'H', vim.diagnostic.open_float, opts)
 
-    local border = {
-      { "╭", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "╮", "FloatBorder" },
-      { "│", "FloatBorder" },
-      { "╯", "FloatBorder" },
-      { "─", "FloatBorder" },
-      { "╰", "FloatBorder" },
-      { "│", "FloatBorder" },
-    }
-    local handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-    }
-    local go_handlers = {
-      ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-      ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-      ["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-          virtual_text = true
-        }
-      )
-    }
+    local goto_prev = function()
+      vim.diagnostic.jump({ count = -1, float = true })
+    end
+    local goto_next = function()
+      vim.diagnostic.jump({ count = 1, float = true })
+    end
+
+    local function signature_help()
+      return vim.lsp.buf.signature_help({ border = "rounded" })
+    end
+
+    local function hover()
+      return vim.lsp.buf.hover({ border = "rounded" })
+    end
 
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
@@ -46,11 +30,16 @@ return {
       -- Mappings.
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
-      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
-      vim.keymap.set('n', 'gs', vim.lsp.buf.signature_help, bufopts)
+      vim.keymap.set('n', 'H', vim.diagnostic.open_float, bufopts)
+      vim.keymap.set('n', '[d', goto_prev, bufopts)
+      vim.keymap.set('n', ']d', goto_next, bufopts)
+      vim.keymap.set('n', 'H', vim.diagnostic.open_float, bufopts)
+      vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
+
+      vim.keymap.set('n', 'gs', signature_help, bufopts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+      vim.keymap.set('n', 'K', hover, bufopts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
@@ -65,7 +54,6 @@ return {
     lspconfig['pyright'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      handlers = handlers,
     }
 
     lspconfig['clangd'].setup {
@@ -76,17 +64,15 @@ return {
         inlineHints = {
           enable = false,
         },
-        giagnostics = {
+        diagnostics = {
           enable = false
         }
       },
-      handlers = handlers,
     }
 
     lspconfig['gopls'].setup {
       capabilities = capabilities,
       on_attach = on_attach,
-      handlers = go_handlers,
     }
 
     lspconfig['lua_ls'].setup({
@@ -102,9 +88,8 @@ return {
           workspace = {
             -- make language server aware of runtime files
             library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-              -- [vim.fn.expand("$HOME/.luarocks/")] = true,
+              [vim.fn.expand("$VIMRUNTIME")] = true,
+              [vim.fn.stdpath("config")] = true,
             },
           },
           completions = {
@@ -115,7 +100,6 @@ return {
           }
         },
       },
-      handlers = handlers,
     })
 
     lspconfig['cmake'].setup {
@@ -133,60 +117,8 @@ return {
         },
         single_file_support = true,
       },
-      handlers = handlers,
     }
 
-    lspconfig['csharp_ls'].setup {
-      capabilities = capabilities,
-      handlers = {
-        ["textDocument/definition"] = require('csharpls_extended').handler,
-        ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
-      },
-      on_attach = on_attach,
-      settings = {
-        filetypes = { "c#" },
-        inlineHints = {
-          enable = false,
-        },
-        diagnostics = {
-          enable = false
-        }
-      },
-      -- handlers = handlers,
-    }
-
-
-    -- lspconfig['texlab'].setup {
-    --   capabilities = capabilities,
-    --   on_attach = on_attach,
-    --   settings = {
-    --     cmd = {
-    --       "texlab",
-    --     },
-    --     filetypes = {
-    --       "tex",
-    --       "plaintex",
-    --       "bib",
-    --     },
-    --     texlab = {
-    --       build = {
-    --         args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-    --         executable = "latexmk",
-    --         forwardSearchAfter = false,
-    --         onSave = true,
-    --       },
-    --       latexFormatter = "latexindent",
-    --       latexindent = {
-    --         modifyLineBreaks = false
-    --       },
-    --       rootDirectory = ".",
-    --     },
-    --     init_options = {
-    --       buildDirectory = "build",
-    --     },
-    --     single_file_support = true,
-    --   }
-    -- }
     -- some settings
     vim.diagnostic.config({ virtual_text = false })
   end

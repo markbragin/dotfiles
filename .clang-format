@@ -2,7 +2,7 @@
 BasedOnStyle: WebKit
 IndentWidth: 4
 PointerAlignment: Right
-ColumnLimit: 80
+ColumnLimit: 120
 SortIncludes: true
 
 AllowShortFunctionsOnASingleLine: Empty
@@ -11,8 +11,11 @@ AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 AllowShortEnumsOnASingleLine: false
 
+BinPackParameters: OnePerLine
 AlignAfterOpenBracket: true
 AlignConsecutiveAssignments: true
+AllowAllParametersOfDeclarationOnNextLine: false
+PenaltyReturnTypeOnItsOwnLine: 1000000
 AlignTrailingComments: true
 
 BracedInitializerIndentWidth: 4
