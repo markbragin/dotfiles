@@ -9,21 +9,6 @@ return {
     local lspconfig = require('lspconfig')
     local cmp_nvim_lsp = require('cmp_nvim_lsp')
 
-    local goto_prev = function()
-      vim.diagnostic.jump({ count = -1, float = true })
-    end
-    local goto_next = function()
-      vim.diagnostic.jump({ count = 1, float = true })
-    end
-
-    local function signature_help()
-      return vim.lsp.buf.signature_help({ border = "rounded" })
-    end
-
-    local function hover()
-      return vim.lsp.buf.hover({ border = "rounded" })
-    end
-
     -- Use an on_attach function to only map the following keys
     -- after the language server attaches to the current buffer
     local on_attach = function(_, bufnr)
@@ -31,15 +16,15 @@ return {
       -- See `:help vim.lsp.*` for documentation on any of the below functions
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
       vim.keymap.set('n', 'H', vim.diagnostic.open_float, bufopts)
-      vim.keymap.set('n', '[d', goto_prev, bufopts)
-      vim.keymap.set('n', ']d', goto_next, bufopts)
+      vim.keymap.set('n', '[d', function() vim.diagnostic.jump({ count = -1, float = true }) end, bufopts)
+      vim.keymap.set('n', ']d', function() vim.diagnostic.jump({ count = 1, float = true }) end, bufopts)
       vim.keymap.set('n', 'H', vim.diagnostic.open_float, bufopts)
       vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, bufopts)
 
-      vim.keymap.set('n', 'gs', signature_help, bufopts)
+      vim.keymap.set('n', 'gs', function() return vim.lsp.buf.signature_help({ border = "rounded" }) end, bufopts)
       vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-      vim.keymap.set('n', 'K', hover, bufopts)
+      vim.keymap.set('n', 'K', function() return vim.lsp.buf.hover({ border = "rounded" }) end, bufopts)
       vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
       vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)

@@ -60,6 +60,7 @@ vim.keymap.set("n", "gn", "<cmd>bn<CR>")
 vim.keymap.set("n", "gp", "<cmd>bp<CR>")
 -- vim.keymap.set("n", "gw", "<cmd>Bclose<CR>")
 -- vim.keymap.set("n", "<leader>gw", "<cmd>Bclose!<CR>")
+vim.keymap.set("n", "gW", "<cmd>bdel<CR>")
 
 -- search
 vim.keymap.set("n", "<F1>", [[:set invhlsearch<CR>]], { silent = true })
@@ -83,7 +84,7 @@ vim.g.maximizer_default_mapping_key = '<F2>'
 
 --
 -- exit terminal mode
-vim.keymap.set("t", "<ESC>", "<C-\\><C-n>", { noremap = true })
+vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>", { noremap = true })
 
 -- compile debug and release version of cpp project
 -- vim.keymap.set("n", "<F3>", "<cmd>make -C build/debug<CR>")
