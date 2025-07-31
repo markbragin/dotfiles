@@ -3,7 +3,6 @@
 vim.opt.termguicolors = true
 
 vim.opt.nu = true
-vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- tabs & indentation
@@ -62,16 +61,3 @@ vim.filetype.add({
   }
 })
 
-
--- number/relativenumber
-vim.api.nvim_create_autocmd("InsertEnter", {
-  callback = function()
-    vim.api.nvim_set_option_value("relativenumber", false, { scope = "local", win = vim.api.nvim_get_current_win() })
-  end
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-  callback = function()
-    vim.api.nvim_set_option_value("relativenumber", true, { scope = "local", win = vim.api.nvim_get_current_win() })
-  end
-})

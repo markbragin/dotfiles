@@ -42,9 +42,9 @@ vim.keymap.set("n", "<space>ss",
   [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- make script executable
-vim.keymap.set("n", "<leader>sx", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>sx", function() vim.cmd("!chmod +x %") end, { silent = true })
 -- run srcipt
-vim.keymap.set("n", "<leader>sr", "<cmd>!%:p<CR>", { silent = true })
+vim.keymap.set("n", "<leader>sr", function() vim.cmd("!%:p") end, { silent = true })
 
 -- edit/reload config
 vim.keymap.set("n", "<leader>ev", function() vim.cmd("e $MYVIMRC") end)
