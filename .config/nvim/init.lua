@@ -1,5 +1,6 @@
-require('user.core.mappings')
-require('user.core.options')
-require('user.plugins-setup')
+require('core.mappings')
+require('core.options')
+require('plugins-setup')
 
 vim.cmd([[colorscheme catppuccin-mocha]])
+

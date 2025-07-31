@@ -39,7 +39,7 @@ return {
 
     vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
     vim.keymap.set('n', '<leader>fF', "<cmd>Telescope find_files cwd=%:p:h<CR>", {})
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>fg', function() builtin.live_grep({ additional_args = { "-uu", "--glob", "!.git" } }) end, {})
     vim.keymap.set('n', '<leader>fG', FuzzyFindFiles, {})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
     vim.keymap.set('n', '<leader>fs', builtin.treesitter, {})

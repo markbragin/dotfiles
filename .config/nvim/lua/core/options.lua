@@ -60,3 +60,17 @@ vim.filetype.add({
     hpp = 'cpp',
   }
 })
+
+
+-- number/relativenumber
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    vim.api.nvim_set_option_value("relativenumber", false, { scope = "local", win = vim.api.nvim_get_current_win() })
+  end
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.api.nvim_set_option_value("relativenumber", true, { scope = "local", win = vim.api.nvim_get_current_win() })
+  end
+})
