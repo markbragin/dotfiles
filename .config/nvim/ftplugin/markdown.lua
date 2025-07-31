@@ -3,4 +3,4 @@ vim.api.nvim_create_autocmd("FileType", {
   command = "setlocal spelllang=en,ru | setlocal spell",
 })
 
-vim.keymap.set("n", "<leader>rm", function() vim.call("RenderMarkdown toggle") end)
+vim.keymap.set("n", "<leader>rm", function() vim.cmd("RenderMarkdown toggle") end)
