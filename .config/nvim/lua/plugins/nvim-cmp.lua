@@ -12,7 +12,14 @@ return {
       -- dependencies = {'rafamadriz/friendly-snippets'},
     },
     'saadparwaiz1/cmp_luasnip',
-    'ray-x/lsp_signature.nvim',
+
+    {
+      'ray-x/lsp_signature.nvim',
+      opts = {
+        bind = true,
+        toggle_key = "<C-]>",
+      }
+    }
   },
   config = function()
     local cmp = require('cmp')

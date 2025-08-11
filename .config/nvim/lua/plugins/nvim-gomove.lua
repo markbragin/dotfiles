@@ -1,5 +1,6 @@
 return {
   'booperlv/nvim-gomove',
+  enabled = false,
   opts = {
     -- whether or not to vim.keymap.set default key bindings, (true/false)
     map_defaults = true,
