@@ -69,6 +69,16 @@ vim.keymap.set('n', '<leader>ec', function()
   local path = vim.fn.stdpath("config")
   vim.cmd("Telescope file_browser path=" .. path)
 end)
+-- edit alacritty config
+vim.keymap.set("n", "<leader>ea", function()
+  local path = "~/.config/alacritty/alacritty.toml"
+  vim.cmd("e " .. path)
+end)
+-- edit tmux config
+vim.keymap.set("n", "<leader>et", function()
+  local path = "~/.tmux.conf"
+  vim.cmd("e " .. path)
+end)
 
 -- buffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")
