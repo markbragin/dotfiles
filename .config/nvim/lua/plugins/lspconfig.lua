@@ -45,12 +45,9 @@ return {
     -- Set up lspconfig.
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    vim.lsp.config("*", {
+    vim.lsp.config("clangd", {
       capabilities = capabilities,
       on_attach = on_attach,
-    })
-
-    vim.lsp.config("clangd", {
       settings = {
         filetypes = { "c", "cpp" },
         inlineHints = {
@@ -58,11 +55,13 @@ return {
         },
         diagnostics = {
           enable = false
-        }
+        },
       },
     })
 
     vim.lsp.config("lua_ls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
       settings = { -- custom settings for lua
         Lua = {
           -- make the language server recognize "vim" global
@@ -87,7 +86,22 @@ return {
       },
     })
 
+    vim.lsp.config("gopls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        cmd = {
+          "gopls",
+        },
+        filetypes = {
+          "go", "gomod", "gowork", "gotmpl"
+        },
+      },
+    })
+
     vim.lsp.config("cmake", {
+      capabilities = capabilities,
+      on_attach = on_attach,
       settings = {
         cmd = {
           "cmake-language-server",
