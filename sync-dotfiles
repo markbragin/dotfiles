@@ -1,0 +1,16 @@
+#!/bin/bash
+
+dotfiles_path=~/dotfiles
+cd $dotfiles_path
+
+git pull
+
+check_changes=$(git status --porcelain | wc -l)
+if [ $check_changes -eq 0 ]
+then
+    exit 0
+fi
+
+git add -A
+git commit -m "$(hostname): Last sync: $(date +"%d-%m-%Y %H:%M:%S")"
+git push

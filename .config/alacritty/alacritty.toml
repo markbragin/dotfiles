@@ -1,3 +1,4 @@
+[general]
 import = [
     # "~/.config/alacritty/monokai-pro.toml",
     # "~/.config/alacritty/monokai-charcoal.toml",
@@ -8,7 +9,7 @@ import = [
 ]
 
 [font]
-size = 12
+size = 10
 
 [font.bold]
 family = "JetBrainsMonoNerdFont"
@@ -26,7 +27,7 @@ style = "Medium"
 history = 10000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/bin/bash"
 
 [window.dimensions]
@@ -35,3 +36,5 @@ lines = 24
 
 [env]
 TERM = "xterm-256color"
+
+[terminal]
