@@ -11,9 +11,9 @@ general {
     output_format = "i3bar"
     colors = true
     interval = 5
-    color_good = "#a3be8c" # Light green
-    color_degraded = "#ebcb8b" # Light yellow
-    color_bad = "#bf617a" # Light red
+    # color_good = "#a3be8c" # Light green
+    # color_degraded = "#ebcb8b" # Light yellow
+    # color_bad = "#bf617a" # Light red
 }
 
 order += "cpu_temperature 1"
@@ -27,14 +27,15 @@ order += "tztime local"
 
 
 tztime local {
-    format = " %a %d-%m-%Y %H:%M  "
+    # format = " %a %d-%m-%Y %H:%M  "
+    format = "%a %d-%m-%Y %H:%M"
     min_width = 1
 }
 
 cpu_temperature 1 {
-    format = "%degrees°C"
+    format = "CPU: %degrees°C"
     max_threshold = 70
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+    path = "/sys/devices/platform/*hwmon/hwmon/hwmon3/temp1_input"
 }
 
 load {
@@ -50,27 +51,36 @@ memory {
 
 volume master {
     format = "♪ %volume"
-    format_muted = "🔇 muted"
+    format_muted = "muted"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
 }
 
 wireless _first_ {
-    format_up = " %essid"
+    format_up = " %essid (%ip)"
     format_down = ""
-
 }
 
 ethernet _first_ {
     format_up = "Eth: %speed"
-    format_down = "Eth"
+    format_down = ""
 }
 
 battery 0 {
-    format = "  %percentage⠀"
-    format_down = ""
-    hide_seconds = true
-    integer_battery_capacity = true
-    last_full_capacity = true
+    format = "%status %percentage %remaining %emptytime"
+    format_down = "No battery"
+    status_chr = "⚡ CHR"
+    status_bat = "  BAT"
+    status_unk = "? UNK"
+    status_full = "☻ FULL"
+    status_idle = "☻ IDLE"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 10
+
+    # format = "  %percentage⠀"
+    # format_down = ""
+    # hide_seconds = true
+    # integer_battery_capacity = true
+    # last_full_capacity = true
 }

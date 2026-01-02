@@ -9,7 +9,7 @@ import = [
 ]
 
 [font]
-size = 10
+size = 8
 
 [font.bold]
 family = "JetBrainsMonoNerdFont"
@@ -20,7 +20,7 @@ family = "JetBrainsMonoNerdFont"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMonoNerdFont"
+family = "JetBrainsMonoNLNerdFont"
 style = "Medium"
 
 [scrolling]
