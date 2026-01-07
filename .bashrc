@@ -144,3 +144,7 @@ export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export MANWIDTH=80
+
+export GTK_THEME="Adwaita:dark"
+
+. "$HOME/.cargo/env"

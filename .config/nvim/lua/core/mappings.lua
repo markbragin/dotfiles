@@ -79,6 +79,11 @@ vim.keymap.set("n", "<leader>et", function()
   local path = "~/.tmux.conf"
   vim.cmd("e " .. path)
 end)
+-- open file browser in ~/.config directory
+vim.keymap.set('n', '<leader>eg', function()
+  local path = "~/.config"
+  vim.cmd("Telescope file_browser path=" .. path)
+end)
 
 -- buffers
 vim.keymap.set("n", "gn", "<cmd>bn<CR>")

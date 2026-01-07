@@ -86,6 +86,20 @@ return {
       },
     })
 
+    vim.lsp.config("rust_analyzer", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        filetypes = { "rust" },
+        -- inlineHints = {
+        --   enable = false,
+        -- },
+        -- diagnostics = {
+        --   enable = false
+        -- },
+      },
+    })
+
     vim.lsp.config("gopls", {
       capabilities = capabilities,
       on_attach = on_attach,
@@ -118,10 +132,11 @@ return {
 
     vim.lsp.enable("pyright", true)
     vim.lsp.enable("clangd", true)
-    vim.lsp.enable("gopls", true)
+    vim.lsp.enable("rust_analyzer", true)
+    -- vim.lsp.enable("gopls", true)
     vim.lsp.enable("cmake", true)
     vim.lsp.enable("lua_ls", true)
-    vim.lsp.enable("ts_ls")
+    -- vim.lsp.enable("ts_ls")
 
     -- some settings
     vim.diagnostic.config({ virtual_text = false })
