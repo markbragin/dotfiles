@@ -1,28 +1,30 @@
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias l1='ls -1'
+alias lh='ls -lh'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-alias tree1='tree -L 1'
-alias tree2='tree -L 2'
-alias tree3='tree -L 3'
-
-# alias vim='nvim'
 alias mkdir='mkdir -p'
 alias open='xdg-open'
-alias settings='xfce4-settings-manager & exit'
-alias freeh='free -h'
-alias l1='ls -1'
-alias lh='ls -lh'
-alias l='ls -l'
-alias la='ls -la'
 alias reboot='systemctl reboot'
 alias off='systemctl poweroff'
-alias fd='fdfind'
-
-alias sn='sync_notes'
-alias pshell='poetry shell'
-alias commitdates='git log --pretty=format:"%Cred %h%Creset %Cgreen%cn%Creset %Cblue%cd%Creset %s"'
-
-alias neovim='nvim -u ~/.vimrc'
-alias cb='xclip -selection "clipboard"'
 alias ip='ip -c'
+
+alias fd='fdfind'
+alias cb='xclip -selection "clipboard"'

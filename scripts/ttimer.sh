@@ -17,5 +17,4 @@ else
 fi
 
 sleep "$duration" && notify-send -u Critical "Timer expired: $msg"
-sound_path=~/Music/ttimer.ogg
-paplay $sound_path
+

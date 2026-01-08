@@ -1,0 +1,131 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "plain"
+# theme = "srcery"
+# theme = "nord-dark"
+# theme = "ctp-mocha"
+# theme = "ctp-macchiato"
+
+[icons]
+# icons = "none"
+# icons = "awesome4"
+icons = "material-nf"
+[icons.overrides]
+# bat = [" "]
+# bat_charging = "⚡"
+# bat_not_available = "? UNK"
+
+# net_wireless = " "
+# net_wired = "Eth"
+
+# volume = "🔊"
+# volume_muted = "🔇"
+# headphones = "🎧" 
+# microphone = "🎤"
+# microphone_muted = "MIC"
+
+[[block]]
+block = "temperature"
+format = " $icon $max max "
+format_alt = " $icon $min min, $max max, $average avg "
+interval = 5
+chip = "*-isa-*"
+
+[[block]]
+block = "amd_gpu"
+format = " $icon $utilization "
+format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
+interval = 1
+
+[[block]]
+block = "cpu"
+info_cpu = 20
+warning_cpu = 50
+critical_cpu = 90
+interval = 5
+format_alt = " $icon $frequency.eng(w:3)/$max_frequency.eng(w:3){ $boost|} "
+
+[[block]]
+block = "memory"
+format = " $icon: $mem_used.eng(w:3)/$mem_total.eng(w:4) "
+format_alt = " $icon_swap $swap_used.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:3)) "
+interval = 5
+warning_mem = 70
+critical_mem = 90
+
+[[block]]
+block = "kdeconnect"
+format = " $icon $name {$bat_icon $bat_charge |}{$notif_icon$notif_count|} "
+disconnected_format = ""
+bat_info = 40
+bat_good = 60
+bat_warning = 30
+bat_critical = 15
+[block.theme_overrides]
+# critical_bg = "#abcdef"
+
+[[block]]
+block = "bluetooth"
+mac = "3C:B0:ED:AE:C5:5C"
+disconnected_format = ""
+format = " $icon $name $percentage $battery_icon $available "
+[block.battery_state]
+"0..20" = "critical"
+"21..50" = "warning"
+"51..100" = "good"
+
+[[block]]
+block = "net"
+format = " $icon $ssid ($ip) "
+inactive_format = " $icon Down "
+missing_format = " $icon UNK "
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+device_kind = "source"
+
+[[block]]
+block = "sound"
+step_width = 2
+show_volume_when_muted = true
+headphones_indicator = true
+[[block.click]]
+button = "right"
+cmd = "pavucontrol"
+[[block.click]]
+button = "left"
+cmd = "amixer -q sset Master toggle"
+
+[[block]]
+block = "backlight"
+missing_format = ""
+[[block.click]]
+button = "right"
+[[block.click]]
+button = "left"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |} "
+full_format = " $icon $percentage "
+empty_format = " $icon $percentage "
+not_charging_format = " $icon $percentage "
+missing_format = " $icon "
+info = 60
+good = 60
+warning = 40
+critical = 20
+full_threshold = 90
+empty_threshold = 10
+
+[[block]]
+block = "keyboard_layout"
+driver = "xkbevent"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d-%m-%y %R') "
+
