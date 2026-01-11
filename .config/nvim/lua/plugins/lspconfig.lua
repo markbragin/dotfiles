@@ -133,7 +133,7 @@ return {
     vim.lsp.enable("pyright", true)
     vim.lsp.enable("clangd", true)
     vim.lsp.enable("rust_analyzer", true)
-    -- vim.lsp.enable("gopls", true)
+    vim.lsp.enable("gopls", true)
     vim.lsp.enable("cmake", true)
     vim.lsp.enable("lua_ls", true)
     -- vim.lsp.enable("ts_ls")

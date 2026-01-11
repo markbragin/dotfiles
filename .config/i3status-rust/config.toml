@@ -108,7 +108,7 @@ button = "left"
 
 [[block]]
 block = "battery"
-format = " $icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |} "
+format = " $icon $percentage.eng(w:5) {$time_remaining.dur(hms:true, min_unit:m) |} "
 full_format = " $icon $percentage "
 empty_format = " $icon $percentage "
 not_charging_format = " $icon $percentage "

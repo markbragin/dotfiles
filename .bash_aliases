@@ -28,3 +28,4 @@ alias ip='ip -c'
 
 alias fd='fdfind'
 alias cb='xclip -selection "clipboard"'
+alias cal='cal -m'
