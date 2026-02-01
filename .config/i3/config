@@ -162,6 +162,18 @@ bindsym Print exec --no-startup-id flameshot gui
 # Needs dunst daemon
 bindsym $mod+minus exec --no-startup-id dunstctl close-all
 
+# Choose display layout (Randr)
+bindsym $mod+Shift+o mode "Randr"
+
+mode "Randr" {
+    bindsym 1 exec --no-startup-id ~/.screenlayout/primary.sh
+    bindsym 2 exec --no-startup-id ~/.screenlayout/secondary.sh
+    bindsym 3 exec --no-startup-id ~/.screenlayout/dual.sh
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {

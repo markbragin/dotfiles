@@ -26,6 +26,10 @@ icons = "material-nf"
 # microphone_muted = "MIC"
 
 [[block]]
+block = "custom"
+command = "echo ✇ $(sensors | grep fan | head -n1 | awk '{ print $2; }') RPM"
+
+[[block]]
 block = "temperature"
 format = " $icon $max max "
 format_alt = " $icon $min min, $max max, $average avg "
