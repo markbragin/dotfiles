@@ -59,6 +59,21 @@ return {
       },
     })
 
+    vim.lsp.config("pyright", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        filetypes = { "py", "python", "pyc" },
+        inlineHints = {
+          enable = false,
+        },
+        diagnostics = {
+          enable = false
+        },
+      },
+    })
+
+
     vim.lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
