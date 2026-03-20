@@ -92,6 +92,7 @@ device_kind = "source"
 
 [[block]]
 block = "sound"
+driver = "pulseaudio"
 step_width = 2
 show_volume_when_muted = true
 headphones_indicator = true

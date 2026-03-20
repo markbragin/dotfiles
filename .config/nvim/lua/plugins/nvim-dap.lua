@@ -32,7 +32,7 @@ return {
     -- vim.keymap.set("n", "<leader><F3>", "<cmd>lua require('dap.ext.vscode').load_launchjs(vim.fn.getcwd() .. '/.launch.json', { cppdbg = {'cpp'} })<CR>")
 
     -- autoload .launch.json config
-    vim.cmd("lua require('dap.ext.vscode').load_launchjs(vim.fn.getcwd() .. '/.launch.json', { cppdbg = {'cpp'} })")
+    -- vim.cmd("lua require('dap.ext.vscode').load_launchjs(vim.fn.getcwd() .. '/.launch.json', { cppdbg = {'cpp'} })")
 
     -- default configurations
     dap.configurations.cpp = {
