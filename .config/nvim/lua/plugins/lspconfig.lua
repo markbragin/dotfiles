@@ -145,6 +145,14 @@ return {
       },
     })
 
+    vim.lsp.config("kotlin_lsp", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      settings = {
+        filetypes = { "kotlin", "kt" },
+      },
+    })
+
     vim.lsp.enable("pyright", true)
     vim.lsp.enable("clangd", true)
     vim.lsp.enable("rust_analyzer", true)
@@ -152,6 +160,7 @@ return {
     vim.lsp.enable("cmake", true)
     vim.lsp.enable("lua_ls", true)
     -- vim.lsp.enable("ts_ls")
+    vim.lsp.enable("kotlin_lsp", true)
 
     -- some settings
     vim.diagnostic.config({ virtual_text = false })

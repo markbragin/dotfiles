@@ -97,11 +97,6 @@ fi
 
 bind 'set completion-ignore-case on'
 
-export PATH=$PATH:/usr/local/go/bin
 export GTK_THEME="Adwaita:dark"
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_OPTS="--history=$HOME/.fzf-history"
-
-. "$HOME/.cargo/env"
-
+. .bashrc_local
