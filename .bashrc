@@ -97,6 +97,11 @@ fi
 
 bind 'set completion-ignore-case on'
 
-export GTK_THEME="Adwaita:dark"
+export QT_QPA_PLATFORMTHEME="xdgdesktopportal"
+export QT_QPA_PLATFORM="wayland;xcb"
 
-. .bashrc_local
+export PATH="$PATH:~/.local/bin"
+
+. ~/.bashrc_local
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

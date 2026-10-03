@@ -1,15 +1,10 @@
 [general]
 import = [
-    # "~/.config/alacritty/monokai-pro.toml",
-    # "~/.config/alacritty/monokai-charcoal.toml",
-    # "~/.config/alacritty/rose-pine.toml",
-    "~/.config/alacritty/rose-pine-moon.toml",
-    # "~/.config/alacritty/nord.toml",
-    # "~/.config/alacritty/gruvbox.toml",
+    "~/.config/alacritty/theme.toml",
 ]
 
 [font]
-size = 8
+size = 12
 
 [font.bold]
 family = "JetBrainsMonoNerdFont"

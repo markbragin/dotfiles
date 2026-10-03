@@ -27,7 +27,7 @@ icons = "material-nf"
 
 [[block]]
 block = "custom"
-command = "echo ✇ $(sensors | grep fan | head -n1 | awk '{ print $2; }') RPM"
+command = "echo ✇ $(sensors | grep -i'fan.*rpm' | head -n1 | awk '{ print $2; }') RPM"
 
 [[block]]
 block = "temperature"
@@ -36,11 +36,11 @@ format_alt = " $icon $min min, $max max, $average avg "
 interval = 5
 chip = "*-isa-*"
 
-[[block]]
-block = "amd_gpu"
-format = " $icon $utilization "
-format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
-interval = 1
+# [[block]]
+# block = "amd_gpu"
+# format = " $icon $utilization "
+# format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
+# interval = 1
 
 [[block]]
 block = "cpu"
@@ -127,7 +127,7 @@ empty_threshold = 10
 
 [[block]]
 block = "keyboard_layout"
-driver = "xkbevent"
+driver = "sway"
 
 [[block]]
 block = "time"
